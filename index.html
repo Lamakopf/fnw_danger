@@ -35,13 +35,13 @@ h2{margin-top:1rem;}
 <!-- ================= START ================= -->
 <section id="view-home">
   <h1>Gefahren von Fake News – Gruppenarbeit</h1>
-  <p class="lead">Wählt euer Thema. Jede Gruppe sammelt, welche <strong>Gefahren entstehen können</strong>, wenn Fake News nicht gestoppt werden.</p>
+  <p class="lead">Wählen Sie ein Themenfeld aus. Jede Gruppe erarbeitet, welche <strong>Gefahren entstehen können</strong>, wenn Falschinformationen nicht gestoppt werden.</p>
 
   <div class="grid cols-2">
-    <div class="card"><h2>👥 Gesellschaft</h2><p>Wie beeinflussen Fake News unser Zusammenleben?</p><button class="btn" onclick="openGroup('g1')">Thema öffnen</button></div>
-    <div class="card"><h2>🏛 Politik</h2><p>Was kann passieren, wenn Menschen falsche politische Infos glauben?</p><button class="btn" onclick="openGroup('g2')">Thema öffnen</button></div>
-    <div class="card"><h2>⚕ Gesundheit</h2><p>Welche Folgen haben Falschinfos über Medizin oder Krankheit?</p><button class="btn" onclick="openGroup('g3')">Thema öffnen</button></div>
-    <div class="card"><h2>🌍 Umwelt</h2><p>Wie wirken sich Fake News über Natur und Klima aus?</p><button class="btn" onclick="openGroup('g4')">Thema öffnen</button></div>
+    <div class="card"><h2>👥 Gesellschaft</h2><p>Wie beeinflussen Falschinformationen das gesellschaftliche Miteinander?</p><button class="btn" onclick="openGroup('g1')">Thema öffnen</button></div>
+    <div class="card"><h2>🏛 Politik</h2><p>Welche Folgen können Fehlinformationen für politische Entscheidungen haben?</p><button class="btn" onclick="openGroup('g2')">Thema öffnen</button></div>
+    <div class="card"><h2>⚕ Gesundheit</h2><p>Welche Risiken entstehen durch Falschmeldungen zu Medizin oder Krankheit?</p><button class="btn" onclick="openGroup('g3')">Thema öffnen</button></div>
+    <div class="card"><h2>🌍 Umwelt</h2><p>Wie verändern Desinformationen den Blick auf Klima und Natur?</p><button class="btn" onclick="openGroup('g4')">Thema öffnen</button></div>
   </div>
 </section>
 
@@ -53,30 +53,32 @@ h2{margin-top:1rem;}
 
   <div class="card">
     <h2>🧭 Arbeitsauftrag</h2>
-    <p>Macht euch in eurer Gruppe <strong>Notizen zu allen Gefahren</strong>, die entstehen können, wenn Fake News in eurem Bereich <strong>nicht gestoppt werden</strong>.</p>
+    <p>Erarbeiten Sie in Ihrer Gruppe <strong>alle Gefahren</strong>, die entstehen können, wenn Fake News in Ihrem Themenbereich <strong>nicht gestoppt werden</strong>.</p>
     <ol>
-      <li>Besprecht gemeinsam: Was passiert, wenn viele Menschen die Falschmeldung glauben?</li>
-      <li>Findet mindestens <b>drei Gefahren</b> oder Folgen, die ihr wichtig findet.</li>
-      <li>Schreibt sie stichwortartig auf euer Blatt oder in euer Dokument.</li>
+      <li>Diskutieren Sie gemeinsam: Welche Folgen hat es, wenn viele Menschen einer Falschmeldung glauben?</li>
+      <li>Halten Sie mindestens <b>drei zentrale Gefahren</b> oder Konsequenzen fest, die Sie für besonders relevant halten.</li>
+      <li>Notieren Sie Ihre Ergebnisse stichpunktartig auf Ihrem Arbeitsblatt oder in Ihrem digitalen Dokument.</li>
     </ol>
-    <p class="notice">Tipp: Achtet darauf, wer betroffen ist – einzelne Menschen, Gruppen oder ganze Gesellschaften.</p>
+    <p class="notice">Hinweis: Überlegen Sie, wer betroffen ist – einzelne Personen, Gruppen oder die Gesellschaft insgesamt.</p>
   </div>
 
   <div class="help card">
     <details open>
-      <summary>💡 Denkimpulse & Ideen zum Start</summary>
+      <summary>💡 Denkimpulse & Ideen zum Einstieg</summary>
       <div class="content" id="materialBox"></div>
     </details>
   </div>
 
   <div class="card">
-    <h2>📝 Links zu den Dokumenten</h2>
-    <div class="label">      <ul>
+    <h2>📝 Links zu den Arbeitsdokumenten</h2>
+    <div class="label">
+      <ul>
         <li>Gesellschaft: <a href="https://cryptpad.fr/pad/#/2/pad/edit/VPzZgMBcAf57cmIYcNsmfros/">Link</a></li>
-        <li>Gesundheit: <a href="https://cryptpad.fr/pad/#/2/pad/edit/zojh4YNoAsntQ2dL35-sc9EO/"">Link</a></li>
-        <li>Politik: <a href="https://cryptpad.fr/pad/#/2/pad/edit/NEQc5uNvEbNb7aOmFXjP5r7C/"">Link</a></li>
-        <li>Umwelt: <a href="https://cryptpad.fr/pad/#/2/pad/edit/2Whr8U5INFVZRq+Xlpt4vuG3/"">Link</a></li>
-      </ul>`</div>
+        <li>Gesundheit: <a href="https://cryptpad.fr/pad/#/2/pad/edit/zojh4YNoAsntQ2dL35-sc9EO/">Link</a></li>
+        <li>Politik: <a href="https://cryptpad.fr/pad/#/2/pad/edit/NEQc5uNvEbNb7aOmFXjP5r7C/">Link</a></li>
+        <li>Umwelt: <a href="https://cryptpad.fr/pad/#/2/pad/edit/2Whr8U5INFVZRq+Xlpt4vuG3/">Link</a></li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -86,50 +88,49 @@ h2{margin-top:1rem;}
 const GROUPS = {
   g1: {
     title:"Gesellschaft",
-    lead:"Wie Fake News das Zusammenleben und Vertrauen zwischen Menschen verändern können.",
+    lead:"Wie Fake News das Vertrauen und den sozialen Zusammenhalt in einer Gesellschaft beeinträchtigen können.",
     material:`
       <ul>
-        <li>Wenn Menschen dauernd verschiedene Geschichten hören, entsteht Unsicherheit – wer hat recht?</li>
-        <li>Starke Emotionen (Wut, Angst, Ekel) führen oft dazu, dass Menschen vorschnell urteilen.</li>
-        <li>Wenn sich Gruppen nur noch gegenseitig misstrauen, verschwindet das Gefühl von Zusammenhalt.</li>
-        <li>Falschmeldungen können einzelne Menschen oder Gruppen unfair darstellen – und das beeinflusst, wie andere sie behandeln.</li>
+        <li>Wenn Menschen ständig widersprüchliche Informationen erhalten, entsteht Unsicherheit – wem kann man noch vertrauen?</li>
+        <li>Starke Emotionen wie Wut, Angst oder Misstrauen fördern vorschnelle Urteile.</li>
+        <li>Wenn Gruppen einander nicht mehr vertrauen, schwächt das das Gemeinschaftsgefühl.</li>
+        <li>Falschmeldungen können Menschen oder Gruppen verzerrt darstellen – das prägt, wie andere über sie denken und handeln.</li>
       </ul>`
-
   },
 
   g2: {
     title:"Politik",
-    lead:"Wie Fake News das Vertrauen in Politik und Demokratie beeinflussen können.",
+    lead:"Wie Fake News das Vertrauen in politische Prozesse und Institutionen untergraben können.",
     material:`
       <ul>
-        <li>Wenn Menschen falsche Infos über Politiker oder Gesetze glauben, können sie Entscheidungen anders treffen.</li>
-        <li>Ständige Falschmeldungen erzeugen den Eindruck, „niemand sagt mehr die Wahrheit“ – das schwächt Vertrauen.</li>
-        <li>Wer laut oder emotional schreibt, wird oft stärker gehört – echte Fakten wirken dann leiser.</li>
-        <li>Wenn viele nur noch Schlagzeilen lesen, wird Politik zu einem Streit um Gefühle statt um Lösungen.</li>
+        <li>Wenn Bürgerinnen und Bürger falsche Informationen über Politik oder Gesetze glauben, treffen sie Entscheidungen auf unsicherer Grundlage.</li>
+        <li>Eine ständige Flut von Fehlinformationen kann den Eindruck erzeugen, „niemand sagt mehr die Wahrheit“ – das schwächt Vertrauen in die Demokratie.</li>
+        <li>Emotional aufgeladene Botschaften verbreiten sich schneller als sachliche Fakten.</li>
+        <li>Wenn Inhalte nur noch nach Lautstärke und Empörung bewertet werden, verliert politische Diskussion an Tiefe.</li>
       </ul>`
   },
 
   g3: {
     title:"Gesundheit",
-    lead:"Wie Fake News über Medizin und Krankheit gefährlich werden können.",
+    lead:"Wie falsche Informationen über medizinische Themen Schaden anrichten können.",
     material:`
       <ul>
-        <li>Menschen probieren Dinge aus, die im Internet empfohlen werden – obwohl sie schaden können.</li>
-        <li>Wenn falsche Heilversprechen kursieren, verlieren Menschen das Vertrauen in Ärztinnen und Ärzte.</li>
-        <li>Gerüchte über Medikamente oder Impfungen können Angst verbreiten und Behandlungen verhindern.</li>
-        <li>Gesundheitsfakes wirken oft glaubwürdig, weil sie sich auf „natürliche“ oder „geheime“ Tipps berufen.</li>
+        <li>Menschen übernehmen Gesundheitstipps aus dem Internet, die wissenschaftlich nicht belegt oder sogar gefährlich sind.</li>
+        <li>Fehlinformationen über Heilmittel untergraben das Vertrauen in medizinisches Fachpersonal.</li>
+        <li>Gerüchte über Impfungen oder Medikamente können Angst schüren und Behandlungen verhindern.</li>
+        <li>Gesundheitsfakes wirken oft glaubwürdig, weil sie sich auf scheinbar „natürliche“ oder „geheime“ Quellen berufen.</li>
       </ul>`
   },
 
   g4: {
     title:"Umwelt",
-    lead:"Wie Fake News das Denken über Klima, Natur und Zukunft verändern können.",
+    lead:"Wie Fake News Wahrnehmung und Handlungsbereitschaft im Bereich Klima und Nachhaltigkeit beeinflussen.",
     material:`
       <ul>
-        <li>Falschmeldungen über Klima oder Energie können Menschen davon abhalten, selbst etwas zu tun.</li>
-        <li>Übertriebene oder verharmlosende Aussagen verwirren: Manche glauben, „es ist schon zu spät“, andere „es ist gar nichts los“.</li>
-        <li>Fotos oder Zahlen ohne Kontext können falsche Eindrücke erzeugen – etwa dass Probleme kleiner oder größer sind, als sie sind.</li>
-        <li>Wenn sich Menschen streiten, wer „recht hat“, verlieren sie die Lust, gemeinsam Lösungen zu suchen.</li>
+        <li>Falschmeldungen über Klima oder Energie können Bürgerinnen und Bürger davon abhalten, selbst aktiv zu werden.</li>
+        <li>Übertriebene oder verharmlosende Darstellungen führen zu Verwirrung: Einige halten die Lage für aussichtslos, andere für harmlos.</li>
+        <li>Manipulative Grafiken oder isolierte Zahlen können falsche Eindrücke erwecken.</li>
+        <li>Wenn Diskussionen nur noch darum gehen, wer „recht hat“, gehen Motivation und gemeinsame Verantwortung verloren.</li>
       </ul>`
   }
 };
