@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Workshop: Gefahren von Fake News</title>
+<title>Workshop: Formen von Hate Speech</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -16,16 +16,14 @@ h1{font-size:clamp(22px,2.6vw,28px);}
 h2{margin-top:1rem;}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:16px;}
 .grid{display:grid;gap:12px;}
-.grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr));}
-@media(max-width:880px){.grid.cols-2{grid-template-columns:1fr;}}
+.grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+@media(max-width:880px){.grid.cols-3{grid-template-columns:1fr;}}
 .btn{background:var(--brand);color:#fff;border:0;padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer;}
 .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink);}
 .hidden{display:none;}
 .help details{border:1px solid var(--line);border-radius:12px;background:#fff;}
 .help summary{cursor:pointer;list-style:none;padding:10px;font-weight:600;}
 .help .content{padding:0 12px 10px;}
-.input{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;}
-.label{font-size:.9rem;color:var(--muted);}
 .notice{background:#fff7e6;border:1px solid #ffe4b5;padding:10px;border-radius:10px;margin-top:10px;}
 </style>
 </head>
@@ -34,14 +32,49 @@ h2{margin-top:1rem;}
 
 <!-- ================= START ================= -->
 <section id="view-home">
-  <h1>Gefahren von Fake News – Gruppenarbeit</h1>
-  <p class="lead">Wählen Sie ein Themenfeld aus. Jede Gruppe erarbeitet, welche <strong>Gefahren entstehen können</strong>, wenn Falschinformationen nicht gestoppt werden.</p>
+  <h1>Formen von Hate Speech – Gruppenarbeit</h1>
+  <p class="lead">
+    Wählen Sie ein Themenfeld aus. Jede Gruppe bearbeitet eine konkrete Form von Hate Speech,
+    liest den Text, beantwortet die Fragen und bereitet eine kurze Vorstellung für die Klasse vor.
+  </p>
 
-  <div class="grid cols-2">
-    <div class="card"><h2>👥 Gesellschaft</h2><p>Wie beeinflussen Falschinformationen das gesellschaftliche Miteinander?</p><button class="btn" onclick="openGroup('g1')">Thema öffnen</button></div>
-    <div class="card"><h2>🏛 Politik</h2><p>Welche Folgen können Fehlinformationen für politische Entscheidungen haben?</p><button class="btn" onclick="openGroup('g2')">Thema öffnen</button></div>
-    <div class="card"><h2>⚕ Gesundheit</h2><p>Welche Risiken entstehen durch Falschmeldungen zu Medizin oder Krankheit?</p><button class="btn" onclick="openGroup('g3')">Thema öffnen</button></div>
-    <div class="card"><h2>🌍 Umwelt</h2><p>Wie verändern Desinformationen den Blick auf Klima und Natur?</p><button class="btn" onclick="openGroup('g4')">Thema öffnen</button></div>
+  <div class="grid cols-3">
+    <div class="card">
+      <h2>🔥 Ragebait</h2>
+      <p>Wie Aufreger-Inhalte gezielt Wut und Empörung erzeugen.</p>
+      <button class="btn" onclick="openGroup('ragebait')">Thema öffnen</button>
+    </div>
+
+    <div class="card">
+      <h2>😶 Bloßstellung / Shaming</h2>
+      <p>Wie Menschen online öffentlich bloßgestellt und lächerlich gemacht werden.</p>
+      <button class="btn" onclick="openGroup('shaming')">Thema öffnen</button>
+    </div>
+
+    <div class="card">
+      <h2>🕵️ Fake-Profile</h2>
+      <p>Wie Identitäten gefälscht werden und wozu das genutzt wird.</p>
+      <button class="btn" onclick="openGroup('fakeprofile')">Thema öffnen</button>
+    </div>
+
+<div class="card">
+  <h2>📩 Hassnachrichten & DMs</h2>
+  <p>Wie wiederholte Beleidigungen und Drohungen über Nachrichten wirken.</p>
+  <button class="btn" onclick="openGroup('serienhass')">Thema öffnen</button>
+</div>
+
+
+    <div class="card">
+      <h2>💬 Kommentarspalten</h2>
+      <p>Warum Kommentare so schnell ausarten und Hate Speech normal wird.</p>
+      <button class="btn" onclick="openGroup('kommentare')">Thema öffnen</button>
+    </div>
+
+    <div class="card">
+      <h2>📢 Outcalling & Massenangriffe</h2>
+      <p>Wie kollektive Angriffe organisiert werden und eskalieren.</p>
+      <button class="btn" onclick="openGroup('outcalling')">Thema öffnen</button>
+    </div>
   </div>
 </section>
 
@@ -51,34 +84,23 @@ h2{margin-top:1rem;}
   <h1 id="groupTitle"></h1>
   <p id="groupLead" class="lead"></p>
 
-  <div class="card">
-    <h2>🧭 Arbeitsauftrag</h2>
-    <p>Erarbeiten Sie in Ihrer Gruppe <strong>alle Gefahren</strong>, die entstehen können, wenn Fake News in Ihrem Themenbereich <strong>nicht gestoppt werden</strong>.</p>
-    <ol>
-      <li>Diskutieren Sie gemeinsam: Welche Folgen hat es, wenn viele Menschen einer Falschmeldung glauben?</li>
-      <li>Halten Sie mindestens <b>drei zentrale Gefahren</b> oder Konsequenzen fest, die Sie für besonders relevant halten.</li>
-      <li>Notieren Sie Ihre Ergebnisse stichpunktartig auf Ihrem Arbeitsblatt oder in Ihrem digitalen Dokument.</li>
-    </ol>
-    <p class="notice">Hinweis: Überlegen Sie, wer betroffen ist – einzelne Personen, Gruppen oder die Gesellschaft insgesamt.</p>
-  </div>
-
   <div class="help card">
     <details open>
-      <summary>💡 Denkimpulse & Ideen zum Einstieg</summary>
+      <summary>📚 Text & Arbeitsauftrag</summary>
       <div class="content" id="materialBox"></div>
     </details>
   </div>
 
   <div class="card">
-    <h2>📝 Links zu den Arbeitsdokumenten</h2>
-    <div class="label">
-      <ul>
-        <li>Gesellschaft: <a href="https://cryptpad.fr/pad/#/2/pad/edit/VPzZgMBcAf57cmIYcNsmfros/">Link</a></li>
-        <li>Gesundheit: <a href="https://cryptpad.fr/pad/#/2/pad/edit/zojh4YNoAsntQ2dL35-sc9EO/">Link</a></li>
-        <li>Politik: <a href="https://cryptpad.fr/pad/#/2/pad/edit/NEQc5uNvEbNb7aOmFXjP5r7C/">Link</a></li>
-        <li>Umwelt: <a href="https://cryptpad.fr/pad/#/2/pad/edit/2Whr8U5INFVZRq+Xlpt4vuG3/">Link</a></li>
-      </ul>
-    </div>
+    <h2>🧭 Allgemeiner Arbeitsauftrag</h2>
+    <ol>
+      <li>Lesen Sie den Informationstext in Ihrer Gruppe aufmerksam durch.</li>
+      <li>Beantworten Sie alle Analysefragen schriftlich in eigenen Worten.</li>
+      <li>Bereiten Sie eine kurze Vorstellung Ihrer Ergebnisse für die Klasse vor (2–3 Minuten).</li>
+    </ol>
+    <p class="notice">
+      Ziel: Sie sollen die gewählte Form von Hate Speech so gut verstehen, dass Sie sie Ihren Mitschüler*innen erklären können.
+    </p>
   </div>
 </section>
 
@@ -86,53 +108,174 @@ h2{margin-top:1rem;}
 
 <script>
 const GROUPS = {
-  g1: {
-    title:"Gesellschaft",
-    lead:"Wie Fake News das Vertrauen und den sozialen Zusammenhalt in einer Gesellschaft beeinträchtigen können.",
-    material:`
-      <ul>
-        <li>Wenn Menschen ständig widersprüchliche Informationen erhalten, entsteht Unsicherheit – wem kann man noch vertrauen?</li>
-        <li>Starke Emotionen wie Wut, Angst oder Misstrauen fördern vorschnelle Urteile.</li>
-        <li>Wenn Gruppen einander nicht mehr vertrauen, schwächt das das Gemeinschaftsgefühl.</li>
-        <li>Falschmeldungen können Menschen oder Gruppen verzerrt darstellen – das prägt, wie andere über sie denken und handeln.</li>
-      </ul>`
+
+  ragebait: {
+    title:"Ragebait",
+    lead:"Wie bestimmte Beiträge extra Wut und Empörung auslösen sollen.",
+    text: `
+      <h2>📘 Informationstext</h2>
+      <p>
+      Ragebait sind Beiträge oder Videos, die extra so gemacht sind, dass Menschen sich aufregen. Typisch sind sehr krasse Überschriften, übertriebene Aussagen oder kurze Ausschnitte aus längeren Videos. Man sieht nur einen Teil und denkt sofort: „Das ist ja unfassbar!“ – noch bevor man die ganze Situation kennt.
+      </p>
+      <p>
+      Hinter Ragebait steckt oft ein klares Ziel: Reichweite. Plattformen bewerten Reaktionen wie Likes, Kommentare oder Teilungen als „Interaktion“. Dabei ist es dem Algorithmus egal, ob jemand positiv oder wütend reagiert. Hauptsache, Menschen bleiben lange auf der Plattform. Für Creator lohnt es sich deshalb, starke Gefühle auszulösen – Wut funktioniert dafür besonders gut.
+      </p>
+      <p>
+      Ragebait arbeitet häufig mit Feindbildern. Es gibt dann klar „die Guten“ und „die Bösen“: eine Person, eine Gruppe, eine Partei oder ein bestimmtes Thema. Komplexe Hintergründe werden vereinfacht oder weggelassen. So entstehen schnell hitzige Diskussionen und Streit. Differenzierte Meinungen gehen dabei leicht unter.
+      </p>
+
+      <h2>📝 Analysefragen</h2>
+      <ol>
+        <li>Warum bringen Ragebait-Beiträge vielen Creatorn viel Reichweite?</li>
+        <li>Wie hängen starke Gefühle und Algorithmus miteinander zusammen?</li>
+        <li>Welche typischen Merkmale haben Ragebait-Titel oder -Videos?</li>
+        <li>Warum führen Ragebait-Inhalte schnell zu „Wir gegen die anderen“?</li>
+        <li>In welchen Bereichen (z.&nbsp;B. Politik, Lifestyle) findest du besonders viel Ragebait – und warum dort?</li>
+      </ol>
+    `
   },
 
-  g2: {
-    title:"Politik",
-    lead:"Wie Fake News das Vertrauen in politische Prozesse und Institutionen untergraben können.",
-    material:`
-      <ul>
-        <li>Wenn Bürgerinnen und Bürger falsche Informationen über Politik oder Gesetze glauben, treffen sie Entscheidungen auf unsicherer Grundlage.</li>
-        <li>Eine ständige Flut von Fehlinformationen kann den Eindruck erzeugen, „niemand sagt mehr die Wahrheit“ – das schwächt Vertrauen in die Demokratie.</li>
-        <li>Emotional aufgeladene Botschaften verbreiten sich schneller als sachliche Fakten.</li>
-        <li>Wenn Inhalte nur noch nach Lautstärke und Empörung bewertet werden, verliert politische Diskussion an Tiefe.</li>
-      </ul>`
+  shaming: {
+    title:"Bloßstellung / Shaming",
+    lead:"Wie Menschen online öffentlich lächerlich gemacht werden und was daran so problematisch ist.",
+    text: `
+      <h2>📘 Informationstext</h2>
+      <p>
+      Bloßstellung bedeutet, dass eine Person im Internet absichtlich peinlich gemacht wird. Das kann über Fotos, Videos, Chatverläufe oder auch über Kommentare passieren. Wichtig ist: Die betroffene Person stimmt der Veröffentlichung nicht zu, und andere sollen über sie lachen oder schlecht über sie denken.
+      </p>
+      <p>
+      Früher passierte so etwas vor allem in kleinen Gruppen, zum Beispiel in einer Klasse oder Clique. Heute können peinliche Inhalte in Sekunden an hunderte oder tausende Menschen gehen. Wenn viele Leute etwas teilen, liken oder kommentieren, wirkt die Bloßstellung schnell „normal“ – auch für Menschen, die die betroffene Person gar nicht kennen.
+      </p>
+      <p>
+      Besonders schwerwiegend ist, dass Inhalte im Netz schwer zu kontrollieren sind. Auch wenn ein Post später gelöscht wird, können Screenshots, Kopien oder Weiterleitungen weiter existieren. Die betroffene Person verliert damit ein Stück Kontrolle über ihr eigenes Bild und ihren Ruf. Bloßstellung kann deshalb langfristige Folgen haben – für das Selbstwertgefühl und für Beziehungen im privaten oder beruflichen Umfeld.
+      </p>
+
+      <h2>📝 Analysefragen</h2>
+      <ol>
+        <li>Welche digitalen Möglichkeiten gibt es, um andere öffentlich bloßzustellen?</li>
+        <li>Warum verstärkt die große Reichweite sozialer Medien die Wirkung von Bloßstellung?</li>
+        <li>Weshalb ist es so schwierig, einmal verbreitete Inhalte wieder vollständig zu entfernen?</li>
+        <li>Welche typischen Gründe haben Menschen, wenn sie peinliche Inhalte über andere teilen?</li>
+        <li>Welche kurz- und langfristigen Folgen kann Bloßstellung für die betroffene Person haben?</li>
+      </ol>
+    `
   },
 
-  g3: {
-    title:"Gesundheit",
-    lead:"Wie falsche Informationen über medizinische Themen Schaden anrichten können.",
-    material:`
-      <ul>
-        <li>Menschen übernehmen Gesundheitstipps aus dem Internet, die wissenschaftlich nicht belegt oder sogar gefährlich sind.</li>
-        <li>Fehlinformationen über Heilmittel untergraben das Vertrauen in medizinisches Fachpersonal.</li>
-        <li>Gerüchte über Impfungen oder Medikamente können Angst schüren und Behandlungen verhindern.</li>
-        <li>Gesundheitsfakes wirken oft glaubwürdig, weil sie sich auf scheinbar „natürliche“ oder „geheime“ Quellen berufen.</li>
-      </ul>`
+  fakeprofile: {
+    title:"Fake-Profile",
+    lead:"Wie gefälschte Profile entstehen und wofür sie genutzt werden.",
+    text: `
+      <h2>📘 Informationstext</h2>
+      <p>
+      Ein Fake-Profil ist ein Account, bei dem die angegebene Identität nicht stimmt. Die Person dahinter kann sich komplett etwas ausdenken – mit falschem Namen, falschem Foto und erfundenen Daten – oder sie gibt sich als eine echte Person aus. In beiden Fällen ist für andere nicht direkt erkennbar, wer wirklich dahintersteckt.
+      </p>
+      <p>
+      Fake-Profile haben verschiedene Funktionen. Manche Menschen nutzen sie, um anonym mitzulesen oder zu kommentieren. Andere setzen Fake-Profile gezielt ein, um Hate Speech zu verbreiten, Konflikte anzuheizen oder falsche Informationen zu posten, ohne mit ihrem echten Namen dazustehen. In Diskussionen können mehrere Fake-Profile den Eindruck erwecken, viele Menschen hätten dieselbe Meinung, obwohl es nur wenige sind.
+      </p>
+      <p>
+      Besonders kritisch ist Identitätsdiebstahl: Jemand erstellt ein Profil im Namen einer realen Person und schreibt dort beleidigende oder peinliche Dinge. Dadurch kann der Ruf der betroffenen Person stark beschädigt werden – auch in der Schule, im Freundeskreis oder im Beruf. Oft merken Betroffene erst spät, dass jemand ihren Namen oder ihre Bilder missbraucht hat.
+      </p>
+
+      <h2>📝 Analysefragen</h2>
+      <ol>
+        <li>Welche Vorteile haben Menschen, wenn sie ein Fake-Profil statt ihres echten Accounts nutzen?</li>
+        <li>Warum senkt Anonymität die Hemmschwelle für Hate Speech und Manipulation?</li>
+        <li>Wie können Fake-Profile Diskussionen künstlich beeinflussen?</li>
+        <li>Welche besonderen Risiken entstehen, wenn reale Personen nachgeahmt werden?</li>
+        <li>Warum ist es für Plattformen schwierig, Fake-Profile zuverlässig zu erkennen und zu sperren?</li>
+      </ol>
+    `
   },
 
-  g4: {
-    title:"Umwelt",
-    lead:"Wie Fake News Wahrnehmung und Handlungsbereitschaft im Bereich Klima und Nachhaltigkeit beeinflussen.",
-    material:`
-      <ul>
-        <li>Falschmeldungen über Klima oder Energie können Bürgerinnen und Bürger davon abhalten, selbst aktiv zu werden.</li>
-        <li>Übertriebene oder verharmlosende Darstellungen führen zu Verwirrung: Einige halten die Lage für aussichtslos, andere für harmlos.</li>
-        <li>Manipulative Grafiken oder isolierte Zahlen können falsche Eindrücke erwecken.</li>
-        <li>Wenn Diskussionen nur noch darum gehen, wer „recht hat“, gehen Motivation und gemeinsame Verantwortung verloren.</li>
-      </ul>`
+serienhass: {
+  title:"Serien von Hassnachrichten & DMs",
+  lead:"Wie wiederholte Hassbotschaften eine Person angreifen und belasten können.",
+  text: `
+    <h2>📘 Informationstext</h2>
+    <p>
+    Serien von Hassnachrichten entstehen, wenn eine Person über einen längeren Zeitraum wiederholt beleidigende,
+    abwertende oder drohende Nachrichten erhält. Das geschieht oft über Direktnachrichten in sozialen Netzwerken,
+    Messenger-Apps oder über Kommentarantworten. Anders als einmalige Konflikte handelt es sich hier um eine
+    dauerhafte sprachliche Angriffsform, die gezielt verletzt oder unter Druck setzen soll.
+    </p>
+    <p>
+    Die Nachrichten sind häufig kurz, aggressiv und emotional. Sie enthalten Beschimpfungen, Forderungen,
+    Schuldzuweisungen oder Drohungen. Viele Angreifer nutzen Anonymität oder Zweitprofile, um härter zu schreiben,
+    als sie es persönlich tun würden. Manche beteiligen sich aus eigenem Antrieb, andere schließen sich an, weil
+    sie sehen, dass bereits viele ähnliche Nachrichten geschrieben wurden.
+    </p>
+    <p>
+    Ein Problem ist die Menge: Schon wenige Nachrichten pro Tag können belastend wirken, doch große Wellen führen
+    schnell zu Überforderung. Betroffene wissen oft nicht, wie sie reagieren sollen, und haben das Gefühl, keine
+    Pause zu bekommen. Wiederholte Hassnachrichten können Angst auslösen, das Selbstwertgefühl senken und
+    dazu führen, dass sich Menschen aus Online-Räumen zurückziehen. Die Angriffe betreffen also nicht nur die
+    digitale Umgebung, sondern auch das reale Leben.
+    </p>
+
+    <h2>📝 Analysefragen</h2>
+    <ol>
+      <li>Wie unterscheiden sich wiederholte Hassnachrichten von einem einzelnen Konflikt?</li>
+      <li>Warum schreiben Menschen in anonymen Nachrichten oft härter oder aggressiver?</li>
+      <li>Welche Rolle spielt die Anzahl und Häufigkeit der Nachrichten für die Wirkung auf Betroffene?</li>
+      <li>Wie kann eine Gruppe von Angreifern den Druck auf eine betroffene Person verstärken?</li>
+      <li>Welche möglichen Folgen haben solche Nachrichten für das reale Leben einer Person?</li>
+    </ol>
+  `
+},
+
+
+  kommentare: {
+    title:"Hate Speech in Kommentarspalten",
+    lead:"Warum Kommentarbereiche leicht aus dem Ruder laufen können.",
+    text: `
+      <h2>📘 Informationstext</h2>
+      <p>
+      Kommentarspalten gehören zu den Orten im Netz, an denen besonders häufig Hate Speech auftaucht. Viele Menschen sehen denselben Beitrag und reagieren schnell, oft aus dem Bauch heraus. Die meisten Plattformen sind so aufgebaut, dass kurze, direkte Antworten einfacher sind als lange Erklärungen. Das erhöht die Gefahr, dass Diskussionen hart und unsachlich werden.
+      </p>
+      <p>
+      Ein wichtiger Punkt ist die sogenannte Online-Enthemmung. Viele Nutzer*innen schreiben Dinge, die sie einer Person von Angesicht zu Angesicht nie sagen würden. Sie fühlen sich sicherer, weil sie räumlich getrennt sind, teilweise anonym bleiben und die Reaktion der anderen nicht direkt sehen. Wenn mehrere Personen anfangen, abwertend oder beleidigend zu schreiben, senkt das für andere die Hemmschwelle, mitzumachen.
+      </p>
+      <p>
+      Algorithmen verstärken diese Dynamik oft noch. Kommentare, die starke Gefühle auslösen, bekommen mehr Antworten, Likes oder Meldungen – und rutschen dadurch nach oben. So entsteht der Eindruck, die lautesten und aggressivsten Stimmen seien die wichtigsten. Das verändert den Ton einer ganzen Diskussion und kann Menschen davon abhalten, sich überhaupt noch zu beteiligen.
+      </p>
+
+      <h2>📝 Analysefragen</h2>
+      <ol>
+        <li>Welche Eigenschaften von Kommentarspalten fördern schnelle, emotionale Reaktionen?</li>
+        <li>Wie trägt die Online-Enthemmung dazu bei, dass Beleidigungen häufiger werden?</li>
+        <li>Auf welche Weise verstärken Algorithmen aggressive Kommentare?</li>
+        <li>Warum reichen manchmal wenige sehr laute Nutzer*innen, um eine Diskussion zu dominieren?</li>
+        <li>Welche Folgen hat es für die öffentliche Debatte, wenn sachliche Stimmen sich zurückziehen?</li>
+      </ol>
+    `
+  },
+
+  outcalling: {
+    title:"Outcalling & digitale Massenangriffe",
+    lead:"Wie viele Menschen gleichzeitig gegen eine Person mobilisiert werden können.",
+    text: `
+      <h2>📘 Informationstext</h2>
+      <p>
+      Outcalling bedeutet, dass eine Person oder Gruppe öffentlich dazu aufruft, eine bestimmte Person im Netz anzugreifen. Das kann direkt passieren („Geht alle auf diesen Account!“) oder indirekt, zum Beispiel durch sehr scharfe Kritik, das Markieren des Profils oder durch das Teilen von Inhalten mit abwertenden Kommentaren. Andere Nutzer*innen schließen sich an und schreiben ebenfalls beleidigende oder bedrohliche Nachrichten.
+      </p>
+      <p>
+      Bei digitalen Massenangriffen entsteht eine starke Gruppendynamik. Einzelne sehen ihre eigenen Beiträge nur als kleinen Teil einer großen Menge und fühlen sich weniger verantwortlich. In Fan-Communities oder bei sehr reichweitenstarken Creatorn können solche Wellen in kurzer Zeit tausende Kommentare auslösen. Für die betroffene Person ist es dann kaum noch möglich, den Überblick zu behalten oder angemessen zu reagieren.
+      </p>
+      <p>
+      Massenangriffe bleiben oft nicht auf eine Plattform beschränkt. Inhalte können kopiert und auf andere Netzwerke übertragen werden. Dadurch kann die betroffene Person das Gefühl bekommen, dass der Angriff „überall“ stattfindet. Outcalling verbindet persönliche Angriffe mit technischen Mechanismen wie Teilen, Markieren und Weiterleiten – und macht Konflikte dadurch extrem sichtbar und belastend.
+      </p>
+
+      <h2>📝 Analysefragen</h2>
+      <ol>
+        <li>Wie entsteht aus einem einzelnen Post eine größere Welle von Angriffen?</li>
+        <li>Welche Rolle spielen Reichweite und Fangemeinden bei Outcalling?</li>
+        <li>Warum verändert eine große Menge an Kommentaren das Erleben der betroffenen Person?</li>
+        <li>Wie können Massenangriffe von einer Plattform auf andere überspringen?</li>
+        <li>Welche Schwierigkeiten gibt es, solche Angriffe zu stoppen oder einzudämmen?</li>
+      </ol>
+    `
   }
+
 };
 
 function show(id){
@@ -144,9 +287,11 @@ function openGroup(gid){
   const g = GROUPS[gid];
   document.getElementById("groupTitle").textContent = g.title;
   document.getElementById("groupLead").textContent = g.lead;
-  document.getElementById("materialBox").innerHTML = g.material;
+  document.getElementById("materialBox").innerHTML = g.text;
   show("view-work");
 }
 </script>
+
+
 </body>
 </html>
