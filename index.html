@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Workshop: Formen von Hate Speech</title>
+<title>Workshop: KI im Unterricht – Task Cards</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -14,6 +14,7 @@ body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0;backg
 main{max-width:1100px;margin:32px auto;padding:0 16px;}
 h1{font-size:clamp(22px,2.6vw,28px);}
 h2{margin-top:1rem;}
+p.lead{color:var(--muted);}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:16px;}
 .grid{display:grid;gap:12px;}
 .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr));}
@@ -23,8 +24,11 @@ h2{margin-top:1rem;}
 .hidden{display:none;}
 .help details{border:1px solid var(--line);border-radius:12px;background:#fff;}
 .help summary{cursor:pointer;list-style:none;padding:10px;font-weight:600;}
+.help summary::-webkit-details-marker{display:none;}
 .help .content{padding:0 12px 10px;}
-.notice{background:#fff7e6;border:1px solid #ffe4b5;padding:10px;border-radius:10px;margin-top:10px;}
+.notice{background:#fff7e6;border:1px solid #ffe4b5;padding:10px;border-radius:10px;margin-top:10px;font-size:0.95rem;}
+.tagline{font-size:0.95rem;color:var(--muted);margin-top:4px;}
+.badge{display:inline-block;background:#e6f0ff;color:#123;padding:2px 8px;border-radius:999px;font-size:0.8rem;font-weight:600;margin-bottom:6px;}
 </style>
 </head>
 <body>
@@ -32,74 +36,91 @@ h2{margin-top:1rem;}
 
 <!-- ================= START ================= -->
 <section id="view-home">
-  <h1>Formen von Hate Speech – Gruppenarbeit</h1>
+  <h1>KI im Unterricht – Aufgaben für Ihre Gruppenarbeit</h1>
   <p class="lead">
-    Wählen Sie ein Themenfeld aus. Jede Gruppe bearbeitet eine konkrete Form von Hate Speech,
-    liest den Text, beantwortet die Fragen und bereitet eine kurze Vorstellung für die Klasse vor.
+    Scannen Sie den QR-Code, wählen Sie eine Task Card aus und bearbeiten Sie die Aufgabe in Ihrer Gruppe.
+    Nutzen Sie dabei mindestens ein KI-Tool (z.&nbsp;B. ChatGPT), um Unterrichtsideen, Materialien oder Texte zu entwickeln.
+  </p>
+  <p class="tagline">
+    Tipp: Arbeiten Sie zu zweit oder zu dritt an einer Task Card. Bearbeitungszeit im Workshop: ca. 25–30 Minuten.
   </p>
 
   <div class="grid cols-3">
     <div class="card">
-      <h2>🔥 Ragebait</h2>
-      <p>Wie Aufreger-Inhalte gezielt Wut und Empörung erzeugen.</p>
-      <button class="btn" onclick="openGroup('ragebait')">Thema öffnen</button>
+      <div class="badge">Unterrichtsplanung</div>
+      <h2>U-1: 45-Min-Unterrichtsbaustein</h2>
+      <p>Planen Sie mit KI-Unterstützung einen kurzen Unterrichtsbaustein zu einem Basisthema Ihrer Wahl.</p>
+      <button class="btn" onclick="openGroup('u1')">Task Card öffnen</button>
     </div>
 
     <div class="card">
-      <h2>😶 Bloßstellung / Shaming</h2>
-      <p>Wie Menschen online öffentlich bloßgestellt und lächerlich gemacht werden.</p>
-      <button class="btn" onclick="openGroup('shaming')">Thema öffnen</button>
+      <div class="badge">Rückmeldung</div>
+      <h2>Z-1: Zeugnis- & Feedbacktexte</h2>
+      <p>Formulieren Sie mit KI wertschätzende, kompetenzorientierte Rückmeldungen für Lernende.</p>
+      <button class="btn" onclick="openGroup('z1')">Task Card öffnen</button>
     </div>
 
     <div class="card">
-      <h2>🕵️ Fake-Profile</h2>
-      <p>Wie Identitäten gefälscht werden und wozu das genutzt wird.</p>
-      <button class="btn" onclick="openGroup('fakeprofile')">Thema öffnen</button>
-    </div>
-
-<div class="card">
-  <h2>📩 Hassnachrichten & DMs</h2>
-  <p>Wie wiederholte Beleidigungen und Drohungen über Nachrichten wirken.</p>
-  <button class="btn" onclick="openGroup('serienhass')">Thema öffnen</button>
-</div>
-
-
-    <div class="card">
-      <h2>💬 Kommentarspalten</h2>
-      <p>Warum Kommentare so schnell ausarten und Hate Speech normal wird.</p>
-      <button class="btn" onclick="openGroup('kommentare')">Thema öffnen</button>
+      <div class="badge">Differenzierung</div>
+      <h2>A-1: KI als Unterrichtsassistent</h2>
+      <p>Differenzieren Sie einen Unterrichtseinstieg auf drei Niveaustufen mit Hilfe von KI.</p>
+      <button class="btn" onclick="openGroup('a1')">Task Card öffnen</button>
     </div>
 
     <div class="card">
-      <h2>📢 Outcalling & Massenangriffe</h2>
-      <p>Wie kollektive Angriffe organisiert werden und eskalieren.</p>
-      <button class="btn" onclick="openGroup('outcalling')">Thema öffnen</button>
+      <div class="badge">Materialerstellung</div>
+      <h2>P-1: Arbeitsblatt-Generator</h2>
+      <p>Entwerfen Sie ein differenziertes Arbeitsblatt, das mit KI vorbereitet wird.</p>
+      <button class="btn" onclick="openGroup('p1')">Task Card öffnen</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">Einstiege</div>
+      <h2>E-1: Kreativer Unterrichtsstart</h2>
+      <p>Entwickeln Sie einen 60-Sekunden-Einstieg, der KI kreativ einbindet.</p>
+      <button class="btn" onclick="openGroup('e1')">Task Card öffnen</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">Medienbildung</div>
+      <h2>M-1: Fake News & Bias</h2>
+      <p>Nutzen Sie KI, um Material zur Arbeit mit Fake News und Verzerrungen zu erstellen.</p>
+      <button class="btn" onclick="openGroup('m1')">Task Card öffnen</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">Reflexion</div>
+      <h2>R-1: KI im eigenen Fach</h2>
+      <p>Analysieren Sie Chancen, Grenzen und sinnvolle Einsatzszenarien von KI in Ihrem Unterrichtsfach.</p>
+      <button class="btn" onclick="openGroup('r1')">Task Card öffnen</button>
     </div>
   </div>
 </section>
 
 <!-- ================= WORK ================= -->
 <section id="view-work" class="hidden">
-  <button class="btn ghost" onclick="goHome()">← Zurück</button>
+  <button class="btn ghost" onclick="goHome()">← Zurück zur Übersicht</button>
   <h1 id="groupTitle"></h1>
   <p id="groupLead" class="lead"></p>
 
   <div class="help card">
     <details open>
-      <summary>📚 Text & Arbeitsauftrag</summary>
+      <summary>📚 Task Card & Arbeitsauftrag</summary>
       <div class="content" id="materialBox"></div>
     </details>
   </div>
 
   <div class="card">
-    <h2>🧭 Allgemeiner Arbeitsauftrag</h2>
+    <h2>🧭 Allgemeiner Rahmen für alle Task Cards</h2>
     <ol>
-      <li>Lesen Sie den Informationstext in Ihrer Gruppe aufmerksam durch.</li>
-      <li>Beantworten Sie alle Analysefragen schriftlich in eigenen Worten.</li>
-      <li>Bereiten Sie eine kurze Vorstellung Ihrer Ergebnisse für die Klasse vor (2–3 Minuten).</li>
+      <li>Lesen Sie die Beschreibung Ihrer Task Card aufmerksam durch.</li>
+      <li>Nutzen Sie mindestens ein KI-Tool, um Ideen zu sammeln, zu strukturieren oder Texte zu formulieren.</li>
+      <li>Treffen Sie als Gruppe bewusste didaktische Entscheidungen: Was übernehmen Sie von der KI, was verändern Sie, was verwerfen Sie?</li>
+      <li>Bereiten Sie ein kurzes Ergebnis für das Plenum vor (z.&nbsp;B. 3-Min-Pitch, Skizze auf Papier, Foto Ihres Ergebnisses).</li>
     </ol>
     <p class="notice">
-      Ziel: Sie sollen die gewählte Form von Hate Speech so gut verstehen, dass Sie sie Ihren Mitschüler*innen erklären können.
+      Ziel des Workshops: Sie erproben KI als <strong>Co-Teacher</strong>, behalten aber die <strongpädagogische Entscheidungshoheit</strong>.
+      Dokumentieren Sie mindestens eine Stärke und eine Grenze des KI-Einsatzes in Ihrer Aufgabe.
     </p>
   </div>
 </section>
@@ -109,217 +130,263 @@ h2{margin-top:1rem;}
 <script>
 const GROUPS = {
 
-  ragebait: {
-    title:"Ragebait",
-    lead:"Wie bestimmte Beiträge extra Wut und Empörung auslösen sollen.",
+  u1: {
+    title:"Unterrichts-Fall U-1: 45-Min-Unterrichtsbaustein",
+    lead:"Planen Sie mit KI-Unterstützung einen 45-minütigen Unterrichtsbaustein für Sek I/II zu einem Thema Ihrer Wahl.",
     text: `
-      <h2>📘 Informationstext</h2>
+      <h2>🎯 Ziel</h2>
       <p>
-      Ragebait sind Beiträge oder Videos, die extra so gemacht sind, dass Menschen sich aufregen.
-      Typisch sind sehr laute Überschriften, übertriebene Aussagen oder kurze Ausschnitte aus längeren Videos.
-      Man sieht nur einen kleinen Teil und denkt sofort: „Krass, was ist da los?“ – noch bevor man die ganze
-      Situation kennt.
-      </p>
-      <p>
-      Hinter Ragebait steckt meistens ein Ziel: Viele Klicks und viel Aufmerksamkeit.
-      Plattformen zählen jede Reaktion, also Likes, Kommentare oder Teilungen.
-      Dem Computer ist egal, ob jemand etwas gut oder schlecht findet – Hauptsache, es passiert viel.
-      Für Creator lohnt es sich deshalb, starke Gefühle auszulösen. Wut funktioniert dafür besonders gut.
-      </p>
-      <p>
-      Oft wird bei Ragebait mit einem klaren „Feind“ gearbeitet, zum Beispiel mit einer bestimmten Person
-      oder einer Gruppe. Dinge werden vereinfacht oder wichtige Informationen fehlen.
-      So entstehen schnell Streit, Beschimpfungen und harte Fronten.
-      Differenzierte Meinungen haben es in solchen Diskussionen schwer.
+        Sie entwickeln einen klar strukturierten Unterrichtsbaustein (45 Minuten) für eine Realschul- oder Gymnasialklasse.
+        Die KI dient Ihnen als Ideengeberin und Formulierungshilfe, nicht als automatische Stundenmaschine.
       </p>
 
-      <h2>📝 Fragen zum Text</h2>
+      <h2>🧩 Schrittfolge</h2>
       <ol>
-        <li>Was ist Ragebait in einfachen Worten?</li>
-        <li>Welche typischen Tricks werden bei Ragebait genutzt?</li>
-        <li>Warum bringen Ragebait-Beiträge oft viele Klicks und Kommentare?</li>
-        <li>Wie kann Ragebait Streit zwischen Gruppen oder Personen auslösen?</li>
-        <li>Woran könnt ihr erkennen, dass ein Beitrag wahrscheinlich Ragebait ist?</li>
+        <li>Wählen Sie ein Basisthema (z.&nbsp;B. <em>Klimawandel</em>, <em>Demokratie</em>, <em>Medienkritik</em>, <em>gesunde Ernährung</em>, <em>Literatur</em>).</li>
+        <li>Bitten Sie eine KI, Ihnen
+          <ul>
+            <li>einen motivierenden Unterrichtseinstieg,</li>
+            <li>eine schüleraktive Phase (Partner-/Gruppenarbeit) und</li>
+            <li>eine kurze Sicherung/Reflexion</li>
+          </ul>
+          vorzuschlagen.
+        </li>
+        <li>Passen Sie die Vorschläge an Ihre Zielgruppe (Klasse, Schulart, Niveau) an. Kürzen, ergänzen, verändern ausdrücklich erwünscht.</li>
+        <li>Skizzieren Sie den Ablauf in maximal 8–10 Stichpunkten.</li>
       </ol>
+
+      <h2>🎯 Ergebnis</h2>
+      <ul>
+        <li>Stundenablauf auf einer halben Seite (Stichpunkte reichen).</li>
+        <li>1–2 Sätze zur Zielgruppe und zum Lernziel.</li>
+      </ul>
+
+      <h2>⚡ Mini-Challenges (optional)</h2>
+      <ul>
+        <li>Nutzen Sie maximal <strong>3 analoge Materialien</strong> (Tafel, Arbeitsblatt, Karten …).</li>
+        <li>Bauen Sie eine <strong>ungewöhnliche Methode</strong> ein (z.&nbsp;B. Mini-Story, Mystery, Rollenkarte, „KI interviewen“).</li>
+        <li>Fügen Sie eine kurze <strong>KI-Kompetenz-Frage</strong> ein (z.&nbsp;B. „Wie sicher sind die Infos, die uns die KI gegeben hat?“).</li>
+      </ul>
     `
   },
 
-  shaming: {
-    title:"Bloßstellung / Shaming",
-    lead:"Wie Menschen online öffentlich lächerlich gemacht werden und warum das gefährlich ist.",
+  z1: {
+    title:"Zeugnis-Case Z-1: Zeugnis- & Feedbacktexte",
+    lead:"Üben Sie mit KI wertschätzende, kompetenzorientierte Rückmeldungen zu formulieren.",
     text: `
-      <h2>📘 Informationstext</h2>
+      <h2>🎯 Ziel</h2>
       <p>
-      Bloßstellung bedeutet: Eine Person wird im Internet absichtlich peinlich gemacht.
-      Andere sollen über sie lachen oder schlecht über sie denken.
-      Das passiert zum Beispiel durch Fotos, Videos, Chatverläufe oder Kommentare.
-      Die betroffene Person hat dem Veröffentlichen oft nicht zugestimmt.
-      </p>
-      <p>
-      Früher passierte so etwas eher im kleinen Kreis, zum Beispiel in einer Schulklasse.
-      Heute können peinliche Inhalte in wenigen Sekunden sehr viele Menschen erreichen.
-      Wenn viele Leute einen Beitrag teilen, liken oder mit lachenden Emojis kommentieren,
-      wirkt die Bloßstellung schnell „normal“ – auch für Menschen, die die Person gar nicht kennen.
-      </p>
-      <p>
-      Ein großes Problem: Inhalte im Netz lassen sich kaum vollständig löschen.
-      Auch wenn ein Post verschwunden ist, können Screenshots oder Kopien bleiben.
-      Die betroffene Person hat dann die Kontrolle über ihr Bild verloren.
-      Das kann lange Folgen haben – für das Selbstwertgefühl und für Freundschaften oder die Arbeit.
+        Sie erstellen kurze, faire und klare Rückmeldungen zu einem Lernbereich (z.&nbsp;B. Selbstständigkeit, Lernverhalten, Teamarbeit, Medienkompetenz).
+        Die KI unterstützt Sie bei Formulierungen – Sie entscheiden, was pädagogisch passt.
       </p>
 
-      <h2>📝 Fragen zum Text</h2>
+      <h2>🧩 Schrittfolge</h2>
       <ol>
-        <li>Was bedeutet Bloßstellung im Internet?</li>
-        <li>Über welche Wege können Menschen online bloßgestellt werden?</li>
-        <li>Warum können heute so viele Menschen sehr schnell einen peinlichen Beitrag sehen?</li>
-        <li>Warum ist es schwierig, einmal verbreitete Inhalte wieder ganz zu entfernen?</li>
-        <li>Welche Folgen kann Bloßstellung für die betroffene Person haben?</li>
+        <li>Wählen Sie einen Lernbereich (z.&nbsp;B. „Selbstständigkeit“ oder „Lern- und Arbeitsverhalten“).</li>
+        <li>Entwerfen Sie drei knappe Steckbriefe zu Schüler*innen:
+          <ul>
+            <li>stark ausgeprägt,</li>
+            <li>durchschnittlich,</li>
+            <li>deutlich ausbaufähig.</li>
+          </ul>
+        </li>
+        <li>Bitten Sie eine KI, zu jedem Steckbrief einen Feedbacktext (ca. 80–120 Wörter) zu schreiben.</li>
+        <li>Überarbeiten Sie die Texte:
+          <ul>
+            <li>Streichen Sie Floskeln und zu komplizierte Formulierungen.</li>
+            <li>Achten Sie auf Wertschätzung, Klarheit und Datenschutz (keine unnötig persönlichen Details).</li>
+          </ul>
+        </li>
       </ol>
+
+      <h2>🎯 Ergebnis</h2>
+      <ul>
+        <li>Drei überarbeitete Rückmeldungen, die Sie so in ein Zeugnis oder Lernentwicklungsgespräch übernehmen könnten.</li>
+        <li>Eine kurze Notiz: Was hat die KI gut gemacht? Wo mussten Sie stark eingreifen?</li>
+      </ul>
+
+      <h2>⚡ Mini-Challenges (optional)</h2>
+      <ul>
+        <li>Formulieren Sie <strong>einen Text für ein Elterngespräch</strong> in Ich-Form um.</li>
+        <li>Formulieren Sie <strong>einen Satz in Schülersprache</strong>, den Sie der Lerngruppe direkt sagen könnten.</li>
+        <li>Formulieren Sie <strong>drei mögliche Elternfragen</strong>, die sich aus einem Ihrer Texte ergeben.</li>
+      </ul>
     `
   },
 
-  fakeprofile: {
-    title:"Fake-Profile",
-    lead:"Wie gefälschte Profile funktionieren und wofür sie bei Hate Speech genutzt werden.",
+  a1: {
+    title:"Analyse-Case A-1: KI als Unterrichtsassistent",
+    lead:"Differenzieren Sie einen Unterrichtseinstieg mit Hilfe von KI auf drei Niveaustufen.",
     text: `
-      <h2>📘 Informationstext</h2>
+      <h2>🎯 Ziel</h2>
       <p>
-      Ein Fake-Profil ist ein Account mit einer falschen Identität.
-      Die Person dahinter benutzt zum Beispiel einen erfundenen Namen,
-      ein falsches Foto oder gibt sich als eine andere echte Person aus.
-      Andere sehen nur das Profil und können oft nicht erkennen, wer wirklich dahintersteckt.
-      </p>
-      <p>
-      Manche nutzen Fake-Profile, um unerkannt mitzulesen oder vorsichtig zu kommentieren.
-      Andere benutzen sie, um Hate Speech zu verbreiten.
-      Sie beleidigen, hetzen oder verbreiten Gerüchte, ohne ihren echten Namen zu zeigen.
-      Mehrere Fake-Profile können so tun, als ob viele Menschen derselben Meinung wären,
-      obwohl dahinter nur wenige Personen stehen.
-      </p>
-      <p>
-      Besonders gefährlich ist es, wenn jemand den Namen und das Bild einer realen Person nutzt.
-      Dann wirkt es so, als hätte diese Person die beleidigenden oder peinlichen Dinge selbst geschrieben.
-      Das kann ihren Ruf stark schädigen – in der Schule, im Freundeskreis oder im Beruf.
-      Oft bemerken Betroffene das erst spät.
+        Sie erleben, wie KI bei der Differenzierung helfen kann – und wo Sie als Lehrkraft steuern müssen.
       </p>
 
-      <h2>📝 Fragen zum Text</h2>
+      <h2>🧩 Schrittfolge</h2>
       <ol>
-        <li>Was ist ein Fake-Profil?</li>
-        <li>Warum benutzen manche Menschen Fake-Profile für Hate Speech?</li>
-        <li>Wie können Fake-Profile den Eindruck erzeugen, dass viele dieselbe Meinung haben?</li>
-        <li>Was passiert, wenn ein Fake-Profil den Namen und das Bild einer echten Person nutzt?</li>
-        <li>Warum ist es für andere schwer zu erkennen, wer hinter einem Fake-Profil steckt?</li>
+        <li>Wählen Sie einen kurzen Unterrichtseinstieg (z.&nbsp;B. Textimpuls, Bild, Karikatur, Rechenaufgabe).</li>
+        <li>Beschreiben Sie der KI Ihre Zielgruppe (z.&nbsp;B. „Klasse 7 Realschule, heterogene Lerngruppe“).</li>
+        <li>Bitten Sie die KI, denselben Einstieg in <strong>drei Schwierigkeitsstufen</strong> zu formulieren:
+          <ul>
+            <li>Basisniveau (starke Unterstützung),</li>
+            <li>Standardniveau,</li>
+            <li>erweitertes Niveau (zusätzliche Denkanstöße).</li>
+          </ul>
+        </li>
+        <li>Analysieren Sie die Vorschläge: Wo passt das Niveau? Wo müssten Sie nachjustieren?</li>
       </ol>
+
+      <h2>🎯 Ergebnis</h2>
+      <ul>
+        <li>Drei abgestufte Versionen eines Einstiegs.</li>
+        <li>Kurze Reflexion (3–5 Stichpunkte): Welche Form der Differenzierung finden Sie sinnvoll? Wo sehen Sie Grenzen von KI?</li>
+      </ul>
+
+      <h2>⚡ Mini-Challenges (optional)</h2>
+      <ul>
+        <li>Lassen Sie die KI zusätzlich <strong>Unterstützungsfragen</strong> für schwächere Lernende vorschlagen.</li>
+        <li>Lassen Sie die KI eine <strong>Transferfrage</strong> für besonders starke Lernende generieren.</li>
+      </ul>
     `
   },
 
-  serienhass: {
-    title:"Serien von Hassnachrichten & DMs",
-    lead:"Wie viele Hassnachrichten hintereinander eine Person fertig machen können.",
+  p1: {
+    title:"Praxis-Case P-1: Arbeitsblatt-Generator",
+    lead:"Erstellen Sie ein einfaches, aber didaktisch sinnvolles Arbeitsblatt mit Unterstützung von KI.",
     text: `
-      <h2>📘 Informationstext</h2>
+      <h2>🎯 Ziel</h2>
       <p>
-      Serien von Hassnachrichten bedeuten: Eine Person bekommt nicht nur eine böse Nachricht,
-      sondern immer wieder neue. Das kann über Direktnachrichten, Messenger oder Antworten auf Kommentare passieren.
-      Die Nachrichten enthalten Beleidigungen, Drohungen oder abwertende Sprüche.
-      Es geht darum, die Person dauerhaft anzugreifen.
-      </p>
-      <p>
-      Viele dieser Nachrichten sind kurz und sehr aggressiv.
-      Manche schreiben so hart, weil sie anonym sind oder ein Zweitprofil nutzen.
-      Andere machen mit, weil sie sehen, dass schon viele ähnliche Nachrichten geschickt haben.
-      So wächst die Menge an Hate immer weiter.
-      </p>
-      <p>
-      Schon wenige Hassnachrichten am Tag können belasten.
-      Wenn es sehr viele werden, fühlen sich Betroffene schnell überfordert.
-      Sie wissen oft nicht, ob sie antworten, blockieren oder gar nichts tun sollen.
-      Auf Dauer kann das Angst machen, traurig machen und dazu führen,
-      dass sich Menschen aus Chats und sozialen Medien zurückziehen.
+        Sie nutzen KI, um Ideen für Aufgaben zu sammeln, bleiben aber bei Struktur und Layout bewusst reduziert.
       </p>
 
-      <h2>📝 Fragen zum Text</h2>
+      <h2>🧩 Schrittfolge</h2>
       <ol>
-        <li>Wodurch unterscheidet sich eine Serie von Hassnachrichten von einem einzelnen Streit?</li>
-        <li>Warum schreiben manche Leute über Nachrichten härter als im echten Leben?</li>
-        <li>Wie kann die Menge der Nachrichten den Druck auf eine Person erhöhen?</li>
-        <li>Warum schließen sich manchmal viele Menschen einer Hassaktion an?</li>
-        <li>Welche Folgen können viele Hassnachrichten für das Leben einer Person haben?</li>
+        <li>Wählen Sie ein Thema, das sich gut für ein Arbeitsblatt eignet (z.&nbsp;B. Leseverstehen, Vokabeln, Diagramm-Auswertung, Textanalyse).</li>
+        <li>Bitten Sie die KI um:
+          <ul>
+            <li>einen kurzen Einstiegstext oder eine Grafikbeschreibung,</li>
+            <li>3–4 Aufgaben zum Text (Reproduktion, Verständnis, Transfer),</li>
+            <li>mindestens eine offene Frage.</li>
+          </ul>
+        </li>
+        <li>Sortieren Sie die Aufgaben so, dass ein klarer Lernpfad entsteht (von leicht nach anspruchsvoll).</li>
+        <li>Formulieren Sie die Anweisungen so um, dass sie zu Ihrer Jahrgangsstufe passen.</li>
       </ol>
+
+      <h2>🎯 Ergebnis</h2>
+      <ul>
+        <li>Ein Arbeitsblatt-Entwurf (Text + Aufgaben) auf einer Seite.</li>
+        <li>Hinweis, für welche Klasse und welches Fach es gedacht ist.</li>
+      </ul>
+
+      <h2>⚡ Mini-Challenges (optional)</h2>
+      <ul>
+        <li>Erstellen Sie zwei Varianten: eine für <strong>mittleres Niveau</strong>, eine für <strong>leistungsstarke Lernende</strong>.</li>
+        <li>Lassen Sie die KI <strong>Lösungsvorschläge</strong> generieren und prüfen Sie diese kritisch.</li>
+      </ul>
     `
   },
 
-  kommentare: {
-    title:"Hate Speech in Kommentarspalten",
-    lead:"Warum Kommentarbereiche leicht aus dem Ruder laufen können.",
+  e1: {
+    title:"Einstiegs-Case E-1: Kreativer Unterrichtsstart",
+    lead:"Entwickeln Sie einen maximal 60-sekündigen Unterrichtseinstieg, der KI kreativ einbindet.",
     text: `
-      <h2>📘 Informationstext</h2>
+      <h2>🎯 Ziel</h2>
       <p>
-      Kommentarspalten sind Bereiche unter Posts oder Videos, in denen alle etwas schreiben können.
-      Dort trifft oft eine große Menge an Menschen aufeinander.
-      Viele reagieren sehr schnell und schreiben, was ihnen gerade durch den Kopf geht.
-      Für lange, ruhige Erklärungen nehmen sich die meisten keine Zeit.
-      Das macht Kommentare kurz, direkt – und manchmal sehr hart.
-      </p>
-      <p>
-      Im Internet fühlen sich viele Menschen stärker und sicherer als im direkten Gespräch.
-      Sie sehen die andere Person nicht vor sich und erleben die Reaktion nicht sofort.
-      Dadurch trauen sie sich, beleidigende oder abwertende Dinge zu schreiben.
-      Wenn einige damit anfangen, fällt es anderen leichter, mitzumachen.
-      Hate Speech kann so zur „Stimmung“ in einer Kommentarspalte werden.
-      </p>
-      <p>
-      Beiträge mit starken Gefühlen – zum Beispiel Wut oder Spott – bekommen oft besonders viele Antworten.
-      Die Plattform zeigt solche Kommentare anderen dann häufiger an.
-      So wirken die lautesten und gemeinsten Stimmen schnell so, als wären sie besonders wichtig.
-      Das kann dazu führen, dass Menschen mit ruhigen, sachlichen Meinungen gar nichts mehr schreiben.
+        Sie planen einen kurzen, aktivierenden Einstieg, bei dem KI Lernende überrascht, motiviert oder irritiert – ohne den Unterricht zu dominieren.
       </p>
 
-      <h2>📝 Fragen zum Text</h2>
+      <h2>🧩 Schrittfolge</h2>
       <ol>
-        <li>Warum schreiben viele Menschen in Kommentarspalten sehr schnell und kurz?</li>
-        <li>Weshalb trauen sich manche online härtere Worte als im persönlichen Gespräch?</li>
-        <li>Wie kann es kommen, dass immer mehr Leute bei Hate Speech in den Kommentaren mitmachen?</li>
-        <li>Warum werden besonders emotionale Kommentare oft oben angezeigt?</li>
-        <li>Was kann passieren, wenn sachliche Menschen sich aus Kommentarspalten zurückziehen?</li>
+        <li>Wählen Sie ein Thema (z.&nbsp;B. historische Quelle, Gedicht, physikalisches Phänomen, gesellschaftliche Debatte).</li>
+        <li>Bitten Sie die KI um einen <strong>Impuls</strong>, z.&nbsp;B.:
+          <ul>
+            <li>ein kurzes Dialogskript („Chat mit einer historischen Figur“),</li>
+            <li>eine absichtlich fehlerhafte Erklärung,</li>
+            <li>eine Mini-Geschichte (5–6 Sätze) oder</li>
+            <li>eine provokante Behauptung, die im Unterricht überprüft wird.</li>
+          </ul>
+        </li>
+        <li>Kürzen Sie den Impuls so, dass er in 60 Sekunden erfassbar ist.</li>
+        <li>Formulieren Sie 1–2 Leitfragen, mit denen Sie direkt in die Stunde einsteigen.</li>
       </ol>
+
+      <h2>🎯 Ergebnis</h2>
+      <ul>
+        <li>Ein konkreter Einstiegstext oder Dialog (max. 6 Sätze).</li>
+        <li>1–2 Leitfragen für die Klasse.</li>
+      </ul>
+
+      <h2>⚡ Mini-Challenges (optional)</h2>
+      <ul>
+        <li>Lassen Sie die KI zwei verschiedene Einstiegsvarianten erstellen: einmal ernsthaft, einmal humorvoll.</li>
+        <li>Planen Sie eine <strong>Rückfrage zum KI-Einsatz</strong> ein: „Was davon könnte die KI falsch verstanden haben?“</li>
+      </ul>
     `
   },
 
-  outcalling: {
-    title:"Outcalling & digitale Massenangriffe",
-    lead:"Wie viele Menschen gleichzeitig gegen eine Person aufgehetzt werden können.",
+  m1: {
+    title:"Medienkompetenz-Case M-1: Fake News & Bias",
+    lead:"Erstellen Sie mit KI Material, das Lernenden hilft, manipulierte Inhalte zu erkennen.",
     text: `
-      <h2>📘 Informationstext</h2>
+      <h2>🎯 Ziel</h2>
       <p>
-      Outcalling bedeutet: Jemand ruft öffentlich dazu auf, eine bestimmte Person im Netz anzugreifen.
-      Das kann sehr direkt sein („Geht alle auf diesen Account!“) oder indirekt, zum Beispiel,
-      indem man die Person markiert und sehr hart kritisiert.
-      Andere sehen diesen Aufruf und schreiben dann selbst beleidigende oder drohende Nachrichten.
-      </p>
-      <p>
-      Wenn viele Menschen gleichzeitig anfangen, eine Person anzugreifen, spricht man von einem digitalen Massenangriff.
-      Jede einzelne Nachricht wirkt vielleicht klein, aber zusammen entsteht ein riesiger Strom aus Hate.
-      Viele, die mitmachen, fühlen sich weniger verantwortlich, weil sie nur „eine von vielen Stimmen“ sind.
-      </p>
-      <p>
-      Solche Angriffe können sich schnell ausbreiten, auch auf andere Plattformen.
-      Ein Post wird zum Beispiel von Instagram zu TikTok oder in private Gruppen kopiert.
-      Für die betroffene Person sieht es dann so aus, als würde der Angriff überall stattfinden.
-      Outcalling macht einen Konflikt dadurch sehr sichtbar und sehr belastend –
-      auch wenn er ursprünglich nur mit einem einzelnen Post angefangen hat.
+        Sie entwickeln eine kleine Unterrichtseinheit, in der Lernende eine fiktive Nachricht prüfen und mit einer korrigierten Version vergleichen.
       </p>
 
-      <h2>📝 Fragen zum Text</h2>
+      <h2>🧩 Schrittfolge</h2>
       <ol>
-        <li>Was bedeutet Outcalling in sozialen Medien?</li>
-        <li>Wie wird aus einem einzelnen Aufruf ein Massenangriff?</li>
-        <li>Warum fühlen sich viele, die mitmachen, weniger verantwortlich für ihren Hate?</li>
-        <li>Wie können solche Angriffe von einer Plattform auf andere übergehen?</li>
-        <li>Warum sind digitale Massenangriffe für Betroffene besonders belastend?</li>
+        <li>Wählen Sie ein Themenfeld (z.&nbsp;B. Klimapolitik, Gesundheit, Schule, Social Media).</li>
+        <li>Bitten Sie die KI, eine <strong>fiktive, leicht verzerrte Nachricht</strong> zu formulieren
+            (klar kennzeichnen, dass sie erfunden ist!).</li>
+        <li>Lassen Sie die KI anschließend eine <strong>korrekte, ausgewogene Version</strong> desselben Inhalts schreiben.</li>
+        <li>Entwickeln Sie 4–5 Fragen, mit denen Lernende Unterschiede, fehlende Informationen und mögliche Bias erkennen können.</li>
       </ol>
+
+      <h2>🎯 Ergebnis</h2>
+      <ul>
+        <li>Fake-News-Version + korrigierte Version als Text.</li>
+        <li>Ein kurzer Fragenkatalog zur Analyse (geeignet ab Klasse 7).</li>
+      </ul>
+
+      <h2>⚡ Mini-Challenges (optional)</h2>
+      <ul>
+        <li>Erstellen Sie eine <strong>Checkliste „Woran erkenne ich fragwürdige Quellen?“</strong>.</li>
+        <li>Lassen Sie die KI typische <strong>Klickbait-Überschriften</strong> zum Thema formulieren und überarbeiten Sie diese gemeinsam.</li>
+      </ul>
+    `
+  },
+
+  r1: {
+    title:"Reflexions-Case R-1: KI im eigenen Fach",
+    lead:"Reflektieren Sie Chancen, Grenzen und sinnvolle Einsatzszenarien von KI in Ihrem Unterrichtsfach.",
+    text: `
+      <h2>🎯 Ziel</h2>
+      <p>
+        Sie erarbeiten eine erste, fachbezogene Haltung zum Einsatz von KI:
+        Wo ist sie hilfreich, wo problematisch, wo überflüssig?
+      </p>
+
+      <h2>🧩 Schrittfolge</h2>
+      <ol>
+        <li>Nennen Sie der KI Ihr Unterrichtsfach und einen Jahrgang (z.&nbsp;B. „Englisch Klasse 9 Gymnasium“).</li>
+        <li>Bitten Sie die KI um eine Liste von <strong>5 sinnvollen Einsatzmöglichkeiten</strong> im Fachunterricht.</li>
+        <li>Bitten Sie zusätzlich um <strong>3 Risiken oder Grenzen</strong> (z.&nbsp;B. Kompetenzverlust, Abhängigkeit, Datenschutz).</li>
+        <li>Bewerten Sie die Vorschläge: Was überzeugt Sie? Was nicht? Wo würden Sie klare Regeln formulieren?</li>
+      </ol>
+
+      <h2>🎯 Ergebnis</h2>
+      <ul>
+        <li>Eine kurze Tabelle oder Liste: „Das finde ich sinnvoll“ / „Das lehne ich ab“ / „Das ist unter Bedingungen denkbar“.</li>
+        <li>Ein Satz, der Ihre vorläufige Haltung zusammenfasst: „In meinem Fach sehe ich KI vor allem als …“</li>
+      </ul>
+
+      <h2>⚡ Mini-Challenges (optional)</h2>
+      <ul>
+        <li>Beschreiben Sie eine <strong>Unterrichtssituation, in der Sie KI bewusst nicht einsetzen würden</strong>, und begründen Sie dies.</li>
+        <li>Formulieren Sie <strong>eine Regel</strong>, die Sie Ihrer späteren Klasse zum Umgang mit KI geben würden.</li>
+      </ul>
     `
   }
 
@@ -338,7 +405,6 @@ function openGroup(gid){
   show("view-work");
 }
 </script>
-
 
 </body>
 </html>
