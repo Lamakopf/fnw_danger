@@ -39,17 +39,17 @@ p.lead{color:var(--muted);}
   <h1>KI im Unterricht – Aufgaben für Ihre Gruppenarbeit</h1>
   <p class="lead">
     Scannen Sie den QR-Code, wählen Sie eine Task Card aus und bearbeiten Sie die Aufgabe in Ihrer Gruppe.
-    Nutzen Sie dabei mindestens ein KI-Tool (z.&nbsp;B. ChatGPT), um Unterrichtsideen, Materialien oder Texte zu entwickeln.
+    Nutzen Sie im Workshop ein KI-Tool (z.&nbsp;B. ChatGPT), um Unterrichtsideen, Materialien oder Texte zu entwickeln.
   </p>
   <p class="tagline">
-    Tipp: Arbeiten Sie zu zweit oder zu dritt an einer Task Card. Bearbeitungszeit im Workshop: ca. 25–30 Minuten.
+    Empfehlung: Arbeiten Sie zu zweit oder zu dritt an einer Task Card. Bearbeitungszeit: ca. 25–30 Minuten.
   </p>
 
   <div class="grid cols-3">
     <div class="card">
       <div class="badge">Unterrichtsplanung</div>
       <h2>U-1: 45-Min-Unterrichtsbaustein</h2>
-      <p>Planen Sie mit KI-Unterstützung einen kurzen Unterrichtsbaustein zu einem Basisthema Ihrer Wahl.</p>
+      <p>Planen Sie mit KI-Unterstützung einen Unterrichtsbaustein zu einem vorgegebenen Thema.</p>
       <button class="btn" onclick="openGroup('u1')">Task Card öffnen</button>
     </div>
 
@@ -62,7 +62,7 @@ p.lead{color:var(--muted);}
 
     <div class="card">
       <div class="badge">Differenzierung</div>
-      <h2>A-1: KI als Unterrichtsassistent</h2>
+      <h2>A-1: Differenzierter Einstieg</h2>
       <p>Differenzieren Sie einen Unterrichtseinstieg auf drei Niveaustufen mit Hilfe von KI.</p>
       <button class="btn" onclick="openGroup('a1')">Task Card öffnen</button>
     </div>
@@ -70,7 +70,7 @@ p.lead{color:var(--muted);}
     <div class="card">
       <div class="badge">Materialerstellung</div>
       <h2>P-1: Arbeitsblatt-Generator</h2>
-      <p>Entwerfen Sie ein differenziertes Arbeitsblatt, das mit KI vorbereitet wird.</p>
+      <p>Entwerfen Sie ein Arbeitsblatt zu einem vorgegebenen Thema mit Unterstützung von KI.</p>
       <button class="btn" onclick="openGroup('p1')">Task Card öffnen</button>
     </div>
 
@@ -114,13 +114,13 @@ p.lead{color:var(--muted);}
     <h2>🧭 Allgemeiner Rahmen für alle Task Cards</h2>
     <ol>
       <li>Lesen Sie die Beschreibung Ihrer Task Card aufmerksam durch.</li>
-      <li>Nutzen Sie mindestens ein KI-Tool, um Ideen zu sammeln, zu strukturieren oder Texte zu formulieren.</li>
+      <li>Nutzen Sie im Workshop ein KI-Tool, um Ideen zu sammeln, zu strukturieren oder Texte zu formulieren.</li>
       <li>Treffen Sie als Gruppe bewusste didaktische Entscheidungen: Was übernehmen Sie von der KI, was verändern Sie, was verwerfen Sie?</li>
       <li>Bereiten Sie ein kurzes Ergebnis für das Plenum vor (z.&nbsp;B. 3-Min-Pitch, Skizze auf Papier, Foto Ihres Ergebnisses).</li>
     </ol>
     <p class="notice">
-      Ziel des Workshops: Sie erproben KI als <strong>Co-Teacher</strong>, behalten aber die <strongpädagogische Entscheidungshoheit</strong>.
-      Dokumentieren Sie mindestens eine Stärke und eine Grenze des KI-Einsatzes in Ihrer Aufgabe.
+      Ziel des Workshops: Sie erproben KI als <strong>Co-Teacher</strong>, behalten aber die <strong>pädagogische Entscheidungshoheit</strong>.
+      Halten Sie mindestens eine Stärke und eine Grenze des KI-Einsatzes fest.
     </p>
   </div>
 </section>
@@ -132,40 +132,34 @@ const GROUPS = {
 
   u1: {
     title:"Unterrichts-Fall U-1: 45-Min-Unterrichtsbaustein",
-    lead:"Planen Sie mit KI-Unterstützung einen 45-minütigen Unterrichtsbaustein für Sek I/II zu einem Thema Ihrer Wahl.",
+    lead:"Planen Sie mit KI-Unterstützung einen 45-minütigen Unterrichtsbaustein für eine 8. Klasse Realschule zu einem der vorgegebenen Themen.",
     text: `
       <h2>🎯 Ziel</h2>
       <p>
-        Sie entwickeln einen klar strukturierten Unterrichtsbaustein (45 Minuten) für eine Realschul- oder Gymnasialklasse.
-        Die KI dient Ihnen als Ideengeberin und Formulierungshilfe, nicht als automatische Stundenmaschine.
+        Sie entwickeln einen klar strukturierten Unterrichtsbaustein (45 Minuten) für eine Realschulklasse.
+        Die KI dient Ihnen als Ideengeberin und Formulierungshilfe – Sie entscheiden, was im Unterricht wirklich passiert.
       </p>
 
-      <h2>🧩 Schrittfolge</h2>
+      <h2>📌 Themenwahl – wählen Sie <strong>ein</strong> Thema aus</h2>
+      <ul>
+        <li>Fake News erkennen</li>
+        <li>Nachhaltigkeit im Alltag</li>
+        <li>Gedichtanalyse: „Der Panther“</li>
+        <li>Europäische Union – Warum brauchen wir sie?</li>
+      </ul>
+
+      <h2>🧩 Ihre Schritte</h2>
       <ol>
-        <li>Wählen Sie ein Basisthema (z.&nbsp;B. <em>Klimawandel</em>, <em>Demokratie</em>, <em>Medienkritik</em>, <em>gesunde Ernährung</em>, <em>Literatur</em>).</li>
-        <li>Bitten Sie eine KI, Ihnen
-          <ul>
-            <li>einen motivierenden Unterrichtseinstieg,</li>
-            <li>eine schüleraktive Phase (Partner-/Gruppenarbeit) und</li>
-            <li>eine kurze Sicherung/Reflexion</li>
-          </ul>
-          vorzuschlagen.
-        </li>
-        <li>Passen Sie die Vorschläge an Ihre Zielgruppe (Klasse, Schulart, Niveau) an. Kürzen, ergänzen, verändern ausdrücklich erwünscht.</li>
-        <li>Skizzieren Sie den Ablauf in maximal 8–10 Stichpunkten.</li>
+        <li>Nutzen Sie im Workshop ein KI-Tool, um einen Vorschlag für einen 45-Minuten-Unterrichtsbaustein zu Ihrem Thema zu erhalten (mit Einstieg, Aktivphase, Sicherung).</li>
+        <li>Prüfen Sie den Vorschlag: Was wirkt realistisch, was eher nicht?</li>
+        <li>Überarbeiten Sie den Ablauf so, dass Sie ihn in einer realen 8. Klasse umsetzen könnten.</li>
+        <li>Streichen Sie mindestens ein Element, das in der Praxis aus Ihrer Sicht nicht funktioniert, und ersetzen Sie es durch eine bessere Idee.</li>
       </ol>
 
       <h2>🎯 Ergebnis</h2>
       <ul>
-        <li>Stundenablauf auf einer halben Seite (Stichpunkte reichen).</li>
+        <li>Stundenablauf auf maximal einer halben Seite (Stichpunkte reichen).</li>
         <li>1–2 Sätze zur Zielgruppe und zum Lernziel.</li>
-      </ul>
-
-      <h2>⚡ Mini-Challenges (optional)</h2>
-      <ul>
-        <li>Nutzen Sie maximal <strong>3 analoge Materialien</strong> (Tafel, Arbeitsblatt, Karten …).</li>
-        <li>Bauen Sie eine <strong>ungewöhnliche Methode</strong> ein (z.&nbsp;B. Mini-Story, Mystery, Rollenkarte, „KI interviewen“).</li>
-        <li>Fügen Sie eine kurze <strong>KI-Kompetenz-Frage</strong> ein (z.&nbsp;B. „Wie sicher sind die Infos, die uns die KI gegeben hat?“).</li>
       </ul>
     `
   },
@@ -177,113 +171,98 @@ const GROUPS = {
       <h2>🎯 Ziel</h2>
       <p>
         Sie erstellen kurze, faire und klare Rückmeldungen zu einem Lernbereich (z.&nbsp;B. Selbstständigkeit, Lernverhalten, Teamarbeit, Medienkompetenz).
-        Die KI unterstützt Sie bei Formulierungen – Sie entscheiden, was pädagogisch passt.
+        Die KI unterstützt Sie bei Formulierungen – Sie behalten die pädagogische Verantwortung.
       </p>
 
-      <h2>🧩 Schrittfolge</h2>
+      <h2>🧩 Ihre Schritte</h2>
       <ol>
         <li>Wählen Sie einen Lernbereich (z.&nbsp;B. „Selbstständigkeit“ oder „Lern- und Arbeitsverhalten“).</li>
         <li>Entwerfen Sie drei knappe Steckbriefe zu Schüler*innen:
           <ul>
-            <li>stark ausgeprägt,</li>
-            <li>durchschnittlich,</li>
+            <li>starke Ausprägung,</li>
+            <li>durchschnittliche Ausprägung,</li>
             <li>deutlich ausbaufähig.</li>
           </ul>
         </li>
-        <li>Bitten Sie eine KI, zu jedem Steckbrief einen Feedbacktext (ca. 80–120 Wörter) zu schreiben.</li>
+        <li>Nutzen Sie im Workshop ein KI-Tool, um zu jedem Steckbrief einen ersten Entwurf einer Rückmeldung zu generieren.</li>
         <li>Überarbeiten Sie die Texte:
           <ul>
-            <li>Streichen Sie Floskeln und zu komplizierte Formulierungen.</li>
-            <li>Achten Sie auf Wertschätzung, Klarheit und Datenschutz (keine unnötig persönlichen Details).</li>
+            <li>vereinfachen Sie Formulierungen,</li>
+            <li>achten Sie auf Wertschätzung und Verständlichkeit,</li>
+            <li>entfernen Sie unnötig personenbezogene Details.</li>
           </ul>
         </li>
       </ol>
 
       <h2>🎯 Ergebnis</h2>
       <ul>
-        <li>Drei überarbeitete Rückmeldungen, die Sie so in ein Zeugnis oder Lernentwicklungsgespräch übernehmen könnten.</li>
-        <li>Eine kurze Notiz: Was hat die KI gut gemacht? Wo mussten Sie stark eingreifen?</li>
-      </ul>
-
-      <h2>⚡ Mini-Challenges (optional)</h2>
-      <ul>
-        <li>Formulieren Sie <strong>einen Text für ein Elterngespräch</strong> in Ich-Form um.</li>
-        <li>Formulieren Sie <strong>einen Satz in Schülersprache</strong>, den Sie der Lerngruppe direkt sagen könnten.</li>
-        <li>Formulieren Sie <strong>drei mögliche Elternfragen</strong>, die sich aus einem Ihrer Texte ergeben.</li>
+        <li>Drei überarbeitete Rückmeldungen, die Sie so in ein Zeugnis oder ein Lernentwicklungsgespräch übernehmen könnten.</li>
+        <li>2–3 Stichpunkte dazu, was die KI gut gemacht hat und wo Sie stark eingreifen mussten.</li>
       </ul>
     `
   },
 
   a1: {
-    title:"Analyse-Case A-1: KI als Unterrichtsassistent",
+    title:"Analyse-Case A-1: Differenzierter Einstieg",
     lead:"Differenzieren Sie einen Unterrichtseinstieg mit Hilfe von KI auf drei Niveaustufen.",
     text: `
       <h2>🎯 Ziel</h2>
       <p>
-        Sie erleben, wie KI bei der Differenzierung helfen kann – und wo Sie als Lehrkraft steuern müssen.
+        Sie erleben, wie KI bei der Differenzierung unterstützen kann – und wo Ihre pädagogische Feinabstimmung notwendig ist.
       </p>
 
-      <h2>🧩 Schrittfolge</h2>
+      <h2>📌 Thema wählen – wählen Sie <strong>ein</strong> Thema aus</h2>
+      <ul>
+        <li>Klimawandel</li>
+        <li>Dreisatz</li>
+        <li>Kurzgeschichte: „Das Brot“</li>
+        <li>Fotosynthese</li>
+      </ul>
+
+      <h2>🧩 Ihre Schritte</h2>
       <ol>
-        <li>Wählen Sie einen kurzen Unterrichtseinstieg (z.&nbsp;B. Textimpuls, Bild, Karikatur, Rechenaufgabe).</li>
-        <li>Beschreiben Sie der KI Ihre Zielgruppe (z.&nbsp;B. „Klasse 7 Realschule, heterogene Lerngruppe“).</li>
-        <li>Bitten Sie die KI, denselben Einstieg in <strong>drei Schwierigkeitsstufen</strong> zu formulieren:
-          <ul>
-            <li>Basisniveau (starke Unterstützung),</li>
-            <li>Standardniveau,</li>
-            <li>erweitertes Niveau (zusätzliche Denkanstöße).</li>
-          </ul>
-        </li>
-        <li>Analysieren Sie die Vorschläge: Wo passt das Niveau? Wo müssten Sie nachjustieren?</li>
+        <li>Nutzen Sie im Workshop ein KI-Tool, um einen Unterrichtseinstieg zu Ihrem Thema für eine 7. Klasse Realschule in drei Schwierigkeitsstufen zu erzeugen.</li>
+        <li>Überarbeiten Sie jede Version so, dass sie wirklich zu einem unterschiedlichen Niveau passt (z.&nbsp;B. Sprachlichkeit, Umfang an Hilfen, Grad der Offenheit).</li>
+        <li>Notieren Sie für jede Version kurz, für welche Lerngruppe sie besonders geeignet wäre.</li>
+        <li>Schreiben Sie eine Begründung: Warum ist Version A leichter als Version B? Worin zeigt sich das konkret?</li>
       </ol>
 
       <h2>🎯 Ergebnis</h2>
       <ul>
-        <li>Drei abgestufte Versionen eines Einstiegs.</li>
-        <li>Kurze Reflexion (3–5 Stichpunkte): Welche Form der Differenzierung finden Sie sinnvoll? Wo sehen Sie Grenzen von KI?</li>
-      </ul>
-
-      <h2>⚡ Mini-Challenges (optional)</h2>
-      <ul>
-        <li>Lassen Sie die KI zusätzlich <strong>Unterstützungsfragen</strong> für schwächere Lernende vorschlagen.</li>
-        <li>Lassen Sie die KI eine <strong>Transferfrage</strong> für besonders starke Lernende generieren.</li>
+        <li>Drei überarbeitete Einstiegsversionen (leicht, mittel, anspruchsvoller).</li>
+        <li>Eine kurze schriftliche Begründung zu den Unterschieden der Niveaustufen.</li>
       </ul>
     `
   },
 
   p1: {
-    title:"Praxis-Case P-1: Arbeitsblatt-Generator",
-    lead:"Erstellen Sie ein einfaches, aber didaktisch sinnvolles Arbeitsblatt mit Unterstützung von KI.",
+    title:"Praxis-Case P-1: Arbeitsblatt erstellen",
+    lead:"Erstellen Sie ein didaktisch sinnvolles Arbeitsblatt mit Unterstützung von KI zu einem vorgegebenen Thema.",
     text: `
       <h2>🎯 Ziel</h2>
       <p>
-        Sie nutzen KI, um Ideen für Aufgaben zu sammeln, bleiben aber bei Struktur und Layout bewusst reduziert.
+        Sie nutzen KI, um Ideen für Texte und Aufgaben zu sammeln, und gestalten daraus ein übersichtliches, sinnvoll aufgebautes Arbeitsblatt.
       </p>
 
-      <h2>🧩 Schrittfolge</h2>
+      <h2>📌 Arbeitsblatt-Thema – wählen Sie <strong>ein</strong> Thema aus</h2>
+      <ul>
+        <li>Diagramm lesen: Stromverbrauch eines Haushalts</li>
+        <li>Textanalyse: „Die drei dunklen Könige“</li>
+        <li>Grammatik: Aktiv/Passiv</li>
+      </ul>
+
+      <h2>🧩 Ihre Schritte</h2>
       <ol>
-        <li>Wählen Sie ein Thema, das sich gut für ein Arbeitsblatt eignet (z.&nbsp;B. Leseverstehen, Vokabeln, Diagramm-Auswertung, Textanalyse).</li>
-        <li>Bitten Sie die KI um:
-          <ul>
-            <li>einen kurzen Einstiegstext oder eine Grafikbeschreibung,</li>
-            <li>3–4 Aufgaben zum Text (Reproduktion, Verständnis, Transfer),</li>
-            <li>mindestens eine offene Frage.</li>
-          </ul>
-        </li>
+        <li>Nutzen Sie im Workshop ein KI-Tool, um einen kurzen Sachtext oder Ausgangstext zu Ihrem Thema sowie vier Aufgaben unterschiedlicher Schwierigkeit zu erzeugen.</li>
         <li>Sortieren Sie die Aufgaben so, dass ein klarer Lernpfad entsteht (von leicht nach anspruchsvoll).</li>
-        <li>Formulieren Sie die Anweisungen so um, dass sie zu Ihrer Jahrgangsstufe passen.</li>
+        <li>Überarbeiten Sie Aufgaben und Formulierungen so, dass sie zu einer 8. Klasse passen (Sprache, Umfang, Operatoren).</li>
+        <li>Markieren Sie an mindestens einer Stelle, wo die KI unklar, fehlerhaft oder didaktisch ungeschickt war – und verbessern Sie dies.</li>
       </ol>
 
       <h2>🎯 Ergebnis</h2>
       <ul>
-        <li>Ein Arbeitsblatt-Entwurf (Text + Aufgaben) auf einer Seite.</li>
-        <li>Hinweis, für welche Klasse und welches Fach es gedacht ist.</li>
-      </ul>
-
-      <h2>⚡ Mini-Challenges (optional)</h2>
-      <ul>
-        <li>Erstellen Sie zwei Varianten: eine für <strong>mittleres Niveau</strong>, eine für <strong>leistungsstarke Lernende</strong>.</li>
-        <li>Lassen Sie die KI <strong>Lösungsvorschläge</strong> generieren und prüfen Sie diese kritisch.</li>
+        <li>Ein Arbeitsblatt-Entwurf (Text + Aufgaben) auf maximal einer Seite.</li>
+        <li>Kurze Notiz: Klasse/Fach + Hinweise zu Ihren Korrekturen am KI-Vorschlag.</li>
       </ul>
     `
   },
@@ -297,18 +276,11 @@ const GROUPS = {
         Sie planen einen kurzen, aktivierenden Einstieg, bei dem KI Lernende überrascht, motiviert oder irritiert – ohne den Unterricht zu dominieren.
       </p>
 
-      <h2>🧩 Schrittfolge</h2>
+      <h2>🧩 Ihre Schritte</h2>
       <ol>
         <li>Wählen Sie ein Thema (z.&nbsp;B. historische Quelle, Gedicht, physikalisches Phänomen, gesellschaftliche Debatte).</li>
-        <li>Bitten Sie die KI um einen <strong>Impuls</strong>, z.&nbsp;B.:
-          <ul>
-            <li>ein kurzes Dialogskript („Chat mit einer historischen Figur“),</li>
-            <li>eine absichtlich fehlerhafte Erklärung,</li>
-            <li>eine Mini-Geschichte (5–6 Sätze) oder</li>
-            <li>eine provokante Behauptung, die im Unterricht überprüft wird.</li>
-          </ul>
-        </li>
-        <li>Kürzen Sie den Impuls so, dass er in 60 Sekunden erfassbar ist.</li>
+        <li>Nutzen Sie im Workshop ein KI-Tool, um einen passenden Impuls zu erzeugen (z.&nbsp;B. Mini-Dialog, Kurzgeschichte, provokante Behauptung, fehlerhafte Erklärung).</li>
+        <li>Kürzen Sie den Impuls so, dass er in 60 Sekunden aufgenommen werden kann.</li>
         <li>Formulieren Sie 1–2 Leitfragen, mit denen Sie direkt in die Stunde einsteigen.</li>
       </ol>
 
@@ -316,12 +288,6 @@ const GROUPS = {
       <ul>
         <li>Ein konkreter Einstiegstext oder Dialog (max. 6 Sätze).</li>
         <li>1–2 Leitfragen für die Klasse.</li>
-      </ul>
-
-      <h2>⚡ Mini-Challenges (optional)</h2>
-      <ul>
-        <li>Lassen Sie die KI zwei verschiedene Einstiegsvarianten erstellen: einmal ernsthaft, einmal humorvoll.</li>
-        <li>Planen Sie eine <strong>Rückfrage zum KI-Einsatz</strong> ein: „Was davon könnte die KI falsch verstanden haben?“</li>
       </ul>
     `
   },
@@ -335,25 +301,18 @@ const GROUPS = {
         Sie entwickeln eine kleine Unterrichtseinheit, in der Lernende eine fiktive Nachricht prüfen und mit einer korrigierten Version vergleichen.
       </p>
 
-      <h2>🧩 Schrittfolge</h2>
+      <h2>🧩 Ihre Schritte</h2>
       <ol>
         <li>Wählen Sie ein Themenfeld (z.&nbsp;B. Klimapolitik, Gesundheit, Schule, Social Media).</li>
-        <li>Bitten Sie die KI, eine <strong>fiktive, leicht verzerrte Nachricht</strong> zu formulieren
-            (klar kennzeichnen, dass sie erfunden ist!).</li>
-        <li>Lassen Sie die KI anschließend eine <strong>korrekte, ausgewogene Version</strong> desselben Inhalts schreiben.</li>
-        <li>Entwickeln Sie 4–5 Fragen, mit denen Lernende Unterschiede, fehlende Informationen und mögliche Bias erkennen können.</li>
+        <li>Nutzen Sie im Workshop ein KI-Tool, um eine fiktive, leicht verzerrte Nachricht zu erzeugen (klar als erfunden kennzeichnen!).</li>
+        <li>Lassen Sie sich eine sachlich korrektere, ausgewogenere Version desselben Inhalts erzeugen.</li>
+        <li>Formulieren Sie 4–5 Fragen, mit denen Lernende Unterschiede, fehlende Informationen und mögliche Verzerrungen erkennen können.</li>
       </ol>
 
       <h2>🎯 Ergebnis</h2>
       <ul>
         <li>Fake-News-Version + korrigierte Version als Text.</li>
         <li>Ein kurzer Fragenkatalog zur Analyse (geeignet ab Klasse 7).</li>
-      </ul>
-
-      <h2>⚡ Mini-Challenges (optional)</h2>
-      <ul>
-        <li>Erstellen Sie eine <strong>Checkliste „Woran erkenne ich fragwürdige Quellen?“</strong>.</li>
-        <li>Lassen Sie die KI typische <strong>Klickbait-Überschriften</strong> zum Thema formulieren und überarbeiten Sie diese gemeinsam.</li>
       </ul>
     `
   },
@@ -368,24 +327,19 @@ const GROUPS = {
         Wo ist sie hilfreich, wo problematisch, wo überflüssig?
       </p>
 
-      <h2>🧩 Schrittfolge</h2>
+      <h2>🧩 Ihre Schritte</h2>
       <ol>
-        <li>Nennen Sie der KI Ihr Unterrichtsfach und einen Jahrgang (z.&nbsp;B. „Englisch Klasse 9 Gymnasium“).</li>
-        <li>Bitten Sie die KI um eine Liste von <strong>5 sinnvollen Einsatzmöglichkeiten</strong> im Fachunterricht.</li>
-        <li>Bitten Sie zusätzlich um <strong>3 Risiken oder Grenzen</strong> (z.&nbsp;B. Kompetenzverlust, Abhängigkeit, Datenschutz).</li>
-        <li>Bewerten Sie die Vorschläge: Was überzeugt Sie? Was nicht? Wo würden Sie klare Regeln formulieren?</li>
+        <li>Nennen Sie einem KI-Tool Ihr Unterrichtsfach und einen Jahrgang (z.&nbsp;B. „Englisch Klasse 9 Gymnasium“).</li>
+        <li>Lassen Sie sich einige sinnvolle Einsatzmöglichkeiten von KI im Fachunterricht vorschlagen.</li>
+        <li>Lassen Sie sich zusätzlich Risiken oder Grenzen benennen (z.&nbsp;B. Kompetenzverlust, Abhängigkeit, Datenschutz).</li>
+        <li>Bewerten Sie die Vorschläge: Was überzeugt Sie? Was eher nicht? Wo würden Sie klare Regeln formulieren?</li>
       </ol>
 
       <h2>🎯 Ergebnis</h2>
       <ul>
-        <li>Eine kurze Tabelle oder Liste: „Das finde ich sinnvoll“ / „Das lehne ich ab“ / „Das ist unter Bedingungen denkbar“.</li>
-        <li>Ein Satz, der Ihre vorläufige Haltung zusammenfasst: „In meinem Fach sehe ich KI vor allem als …“</li>
-      </ul>
-
-      <h2>⚡ Mini-Challenges (optional)</h2>
-      <ul>
-        <li>Beschreiben Sie eine <strong>Unterrichtssituation, in der Sie KI bewusst nicht einsetzen würden</strong>, und begründen Sie dies.</li>
-        <li>Formulieren Sie <strong>eine Regel</strong>, die Sie Ihrer späteren Klasse zum Umgang mit KI geben würden.</li>
+        <li>Eine Liste mit drei Spalten: „sinnvoll“, „unter Bedingungen“, „lehne ich ab“.</li>
+        <li>Ein Satz, der Ihre vorläufige Haltung zusammenfasst:
+            „In meinem Fach sehe ich KI vor allem als …“</li>
       </ul>
     `
   }
