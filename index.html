@@ -1,364 +1,783 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Workshop: KI im Unterricht – Task Cards</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg:#fff; --ink:#111; --muted:#555; --line:#e5e8ee;
-  --brand:#0b72ff; --card:#f8f9fc;
-}
-body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0;background:var(--bg);color:var(--ink);line-height:1.6;}
-main{max-width:1100px;margin:32px auto;padding:0 16px;}
-h1{font-size:clamp(22px,2.6vw,28px);}
-h2{margin-top:1rem;}
-p.lead{color:var(--muted);}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:16px;}
-.grid{display:grid;gap:12px;}
-.grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr));}
-@media(max-width:880px){.grid.cols-3{grid-template-columns:1fr;}}
-.btn{background:var(--brand);color:#fff;border:0;padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer;}
-.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink);}
-.hidden{display:none;}
-.help details{border:1px solid var(--line);border-radius:12px;background:#fff;}
-.help summary{cursor:pointer;list-style:none;padding:10px;font-weight:600;}
-.help summary::-webkit-details-marker{display:none;}
-.help .content{padding:0 12px 10px;}
-.notice{background:#fff7e6;border:1px solid #ffe4b5;padding:10px;border-radius:10px;margin-top:10px;font-size:0.95rem;}
-.tagline{font-size:0.95rem;color:var(--muted);margin-top:4px;}
-.badge{display:inline-block;background:#e6f0ff;color:#123;padding:2px 8px;border-radius:999px;font-size:0.8rem;font-weight:600;margin-bottom:6px;}
-</style>
+  <meta charset="utf-8" />
+  <title>KI im Unterricht – Arbeitsaufträge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f5f7ff;
+      --bg-alt: #ffffff;
+      --ink: #141414;
+      --muted: #555;
+      --accent1: #ff7aa2;
+      --accent2: #7b9cff;
+      --accent3: #ffc857;
+      --accent4: #6bd4b1;
+      --border: #dde2f5;
+      --radius-xl: 18px;
+      --shadow-soft: 0 14px 30px rgba(20, 20, 40, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+      background: radial-gradient(circle at top left, #fbe4ff 0, #f5f7ff 40%, #edf6ff 100%);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ff7aa2, #7b9cff);
+      border-radius: 24px;
+      padding: 22px 20px 22px 20px;
+      color: white;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.3) 0, transparent 70%);
+      top: -120px;
+      right: -60px;
+      pointer-events: none;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      letter-spacing: 0.01em;
+    }
+
+    header p {
+      margin: 0;
+      max-width: 650px;
+      font-size: 0.98rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      padding: 4px 12px;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .badge span {
+      font-size: 1.1rem;
+    }
+
+    .layout-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr);
+      gap: 18px;
+      margin-top: 20px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 860px) {
+      .layout-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* Progress / Gamification */
+
+    .panel {
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .panel h2 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+    }
+
+    .panel p {
+      margin: 0 0 10px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .progress-wrapper {
+      margin-top: 10px;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      color: var(--muted);
+    }
+
+    .progress-bar {
+      position: relative;
+      height: 12px;
+      border-radius: 999px;
+      background: #e3e7fb;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      position: absolute;
+      inset: 0;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent4), var(--accent2));
+      transition: width 0.25s ease-out;
+    }
+
+    .xp-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 6px;
+      font-size: 0.85rem;
+      background: #f0f5ff;
+      border-radius: 999px;
+      padding: 4px 10px;
+      color: var(--muted);
+    }
+
+    .xp-pill span {
+      font-size: 1rem;
+    }
+
+    /* Navigation Chips */
+
+    .nav-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .nav-chip {
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.88rem;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      background: rgba(255,255,255,0.92);
+      color: #38405b;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .nav-chip span {
+      font-size: 1.05rem;
+    }
+
+    .nav-chip:hover {
+      background: #fff;
+      box-shadow: 0 6px 16px rgba(70, 70, 100, 0.16);
+    }
+
+    /* Cards for tasks */
+
+    .tasks-section {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .task-card {
+      background: var(--bg-alt);
+      border-radius: 22px;
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .task-card::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.7) 0, transparent 65%);
+      top: -60px;
+      right: -30px;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .task-header-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+
+    .task-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      color: #333;
+      background: #fbe8ff;
+    }
+
+    .task-tag span {
+      font-size: 1.05rem;
+    }
+
+    .task-level {
+      font-size: 0.85rem;
+      padding: 2px 9px;
+      border-radius: 999px;
+      border: 1px dashed rgba(0,0,0,0.16);
+      background: #f7f9ff;
+      color: #555;
+    }
+
+    .task-card h2 {
+      margin: 4px 0 8px;
+      font-size: 1.1rem;
+    }
+
+    .task-card p.lead {
+      margin: 0 0 8px;
+      font-size: 0.96rem;
+      color: var(--muted);
+    }
+
+    .task-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .task-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #f3f5ff;
+    }
+
+    .task-meta span strong {
+      font-weight: 600;
+      color: #333;
+    }
+
+    h3 {
+      margin-top: 12px;
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+
+    .steps {
+      margin: 4px 0 0;
+      padding-left: 0;
+      list-style: none;
+      font-size: 0.95rem;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      padding: 6px 0;
+      border-bottom: 1px dashed #eef1ff;
+    }
+
+    .step-item:last-child {
+      border-bottom: none;
+    }
+
+    .step-item input[type="checkbox"] {
+      margin-top: 4px;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      accent-color: var(--accent2);
+    }
+
+    .step-text {
+      flex: 1;
+    }
+
+    .step-text strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 0.94rem;
+    }
+
+    .step-text span {
+      font-size: 0.93rem;
+      color: var(--muted);
+    }
+
+    .product-box,
+    .reflection-box {
+      margin-top: 10px;
+      padding: 8px 10px;
+      border-radius: 14px;
+      font-size: 0.92rem;
+      border: 1px dashed #dde3ff;
+      background: #f6f7ff;
+    }
+
+    .product-box h4,
+    .reflection-box h4 {
+      margin: 0 0 4px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #555b7a;
+    }
+
+    .product-box ul,
+    .reflection-box ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .product-box li,
+    .reflection-box li {
+      margin: 2px 0;
+    }
+
+    .reflection-box {
+      background: #fff8ea;
+      border-color: #ffe0a8;
+    }
+
+    /* Anchor spacing */
+
+    .anchor {
+      position: relative;
+      top: -80px;
+      visibility: hidden;
+    }
+  </style>
 </head>
 <body>
 <main>
-
-<!-- ================= START ================= -->
-<section id="view-home">
-  <h1>KI im Unterricht – Aufgaben für Ihre Gruppenarbeit</h1>
-  <p class="lead">
-    Scannen Sie den QR-Code, wählen Sie eine Task Card aus und bearbeiten Sie die Aufgabe in Ihrer Gruppe.
-    Nutzen Sie im Workshop ein KI-Tool (z.&nbsp;B. ChatGPT), um Unterrichtsideen, Materialien oder Texte zu entwickeln.
-  </p>
-  <p class="tagline">
-    Empfehlung: Arbeiten Sie zu zweit oder zu dritt an einer Task Card. Bearbeitungszeit: ca. 25–30 Minuten.
-  </p>
-
-  <div class="grid cols-3">
-    <div class="card">
-      <div class="badge">Unterrichtsplanung</div>
-      <h2>U-1: 45-Min-Unterrichtsbaustein</h2>
-      <p>Planen Sie mit KI-Unterstützung einen Unterrichtsbaustein zu einem vorgegebenen Thema.</p>
-      <button class="btn" onclick="openGroup('u1')">Task Card öffnen</button>
+  <header>
+    <div class="badge">
+      <span>🎮</span>
+      <span>KI-Quest: Du planst wie eine Lehrkraft – mit KI als Sidekick</span>
     </div>
-
-    <div class="card">
-      <div class="badge">Rückmeldung</div>
-      <h2>Z-1: Zeugnis- & Feedbacktexte</h2>
-      <p>Formulieren Sie mit KI wertschätzende, kompetenzorientierte Rückmeldungen für Lernende.</p>
-      <button class="btn" onclick="openGroup('z1')">Task Card öffnen</button>
-    </div>
-
-    <div class="card">
-      <div class="badge">Differenzierung</div>
-      <h2>A-1: Differenzierter Einstieg</h2>
-      <p>Differenzieren Sie einen Unterrichtseinstieg auf drei Niveaustufen mit Hilfe von KI.</p>
-      <button class="btn" onclick="openGroup('a1')">Task Card öffnen</button>
-    </div>
-
-    <div class="card">
-      <div class="badge">Materialerstellung</div>
-      <h2>P-1: Arbeitsblatt-Generator</h2>
-      <p>Entwerfen Sie ein Arbeitsblatt zu einem vorgegebenen Thema mit Unterstützung von KI.</p>
-      <button class="btn" onclick="openGroup('p1')">Task Card öffnen</button>
-    </div>
-
-    <div class="card">
-      <div class="badge">Einstiege</div>
-      <h2>E-1: Kreativer Unterrichtsstart</h2>
-      <p>Entwickeln Sie einen 60-Sekunden-Einstieg, der KI kreativ einbindet.</p>
-      <button class="btn" onclick="openGroup('e1')">Task Card öffnen</button>
-    </div>
-
-    <div class="card">
-      <div class="badge">Medienbildung</div>
-      <h2>M-1: Fake News & Bias</h2>
-      <p>Nutzen Sie KI, um Material zur Arbeit mit Fake News und Verzerrungen zu erstellen.</p>
-      <button class="btn" onclick="openGroup('m1')">Task Card öffnen</button>
-    </div>
-
-    <div class="card">
-      <div class="badge">Reflexion</div>
-      <h2>R-1: KI im eigenen Fach</h2>
-      <p>Analysieren Sie Chancen, Grenzen und sinnvolle Einsatzszenarien von KI in Ihrem Unterrichtsfach.</p>
-      <button class="btn" onclick="openGroup('r1')">Task Card öffnen</button>
-    </div>
-  </div>
-</section>
-
-<!-- ================= WORK ================= -->
-<section id="view-work" class="hidden">
-  <button class="btn ghost" onclick="goHome()">← Zurück zur Übersicht</button>
-  <h1 id="groupTitle"></h1>
-  <p id="groupLead" class="lead"></p>
-
-  <div class="help card">
-    <details open>
-      <summary>📚 Task Card & Arbeitsauftrag</summary>
-      <div class="content" id="materialBox"></div>
-    </details>
-  </div>
-
-  <div class="card">
-    <h2>🧭 Allgemeiner Rahmen für alle Task Cards</h2>
-    <ol>
-      <li>Lesen Sie die Beschreibung Ihrer Task Card aufmerksam durch.</li>
-      <li>Nutzen Sie im Workshop ein KI-Tool, um Ideen zu sammeln, zu strukturieren oder Texte zu formulieren.</li>
-      <li>Treffen Sie als Gruppe bewusste didaktische Entscheidungen: Was übernehmen Sie von der KI, was verändern Sie, was verwerfen Sie?</li>
-      <li>Bereiten Sie ein kurzes Ergebnis für das Plenum vor (z.&nbsp;B. 3-Min-Pitch, Skizze auf Papier, Foto Ihres Ergebnisses).</li>
-    </ol>
-    <p class="notice">
-      Ziel des Workshops: Sie erproben KI als <strong>Co-Teacher</strong>, behalten aber die <strong>pädagogische Entscheidungshoheit</strong>.
-      Halten Sie mindestens eine Stärke und eine Grenze des KI-Einsatzes fest.
+    <h1>KI im Unterricht – deine Arbeitsaufträge</h1>
+    <p>
+      Wähle eine Mission aus, arbeite 45–60 Minuten damit und nutze dabei ein
+      KI-System so, wie du es später im Lehreralltag nutzen könntest:
+      für Planung, Differenzierung oder kreative Einstiege.
     </p>
-  </div>
-</section>
 
+    <div class="layout-grid">
+      <div>
+        <div class="nav-chips">
+          <a class="nav-chip" href="#auftrag-a">
+            <span>📚</span>
+            <span>Mission A – Unterrichtsplaner</span>
+          </a>
+          <a class="nav-chip" href="#auftrag-b">
+            <span>🧩</span>
+            <span>Mission B – Differenzierung</span>
+          </a>
+          <a class="nav-chip" href="#auftrag-d">
+            <span>🚀</span>
+            <span>Mission D – Einstiege</span>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="panel">
+          <h2>Dein Fortschritt</h2>
+          <p>Hake die Schritte in deinen Missionen ab. Beobachte, wie deine XP steigen. ✨</p>
+          <div class="progress-wrapper">
+            <div class="progress-label">
+              <span>Quest-Fortschritt</span>
+              <span id="progress-percent">0%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+          </div>
+          <div class="xp-pill">
+            <span>⭐</span>
+            <span id="xp-label">0 von 0 Steps erledigt</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="tasks-section">
+
+    <!-- Mission A -->
+    <div id="auftrag-a" class="task-card">
+      <div class="anchor" aria-hidden="true"></div>
+      <div class="task-header-line">
+        <div class="task-tag">
+          <span>📚</span>
+          <span>Mission A – KI als Unterrichtsplaner</span>
+        </div>
+        <div class="task-level">Level 1 – Planung & Struktur</div>
+      </div>
+      <h2>Erstelle einen 45-Minuten-Unterrichtsbaustein mit KI</h2>
+      <p class="lead">
+        Du nutzt KI, um einen kompletten 45-Minuten-Baustein zu planen – mit Struktur und Differenzierung.
+        Danach prüfst du alles kritisch wie eine Lehrkraft.
+      </p>
+      <div class="task-meta">
+        <span>⏱️ <strong>45–60 Min</strong></span>
+        <span>🎯 <strong>Ziel:</strong> KI als Planungs-Tool testen</span>
+        <span>👩‍🏫 <strong>Rolle:</strong> Lehrkraft</span>
+      </div>
+
+      <h3>Deine Steps</h3>
+      <ul class="steps">
+        <li class="step-item">
+          <input type="checkbox" />
+          <div class="step-text">
+            <strong>1. Thema wählen</strong>
+            <span>
+              Such dir ein Unterrichtsthema aus (z. B. Fotosynthese, Gedichte, Brüche, Fake News)
+              und notiere kurz die Klassenstufe.
+            </span>
+          </div>
+        </li>
+        <li class="step-item">
+          <input type="checkbox" />
+          <div class="step-text">
+            <strong>2. Groben Plan ohne KI skizzieren</strong>
+            <span>
+              Notiere stichpunktartig Lernziel, groben Ablauf (Einstieg – Aktivphase – Sicherung)
+              und eine Idee zur Differenzierung.
+            </span>
+          </div>
+        </li>
+        <li class="step-item">
+          <input type="checkbox" />
+          <div class="step-text">
+            <strong>3. KI-Entwurf erstellen</strong>
+            <span>
+              Nutze deine Prompt-Strategie und bitte die KI um einen 45-Minuten-Baustein mit
+              klarer Struktur, mindestens zwei Niveaustufen und 1–2 aktivierenden Methoden.
+              Dokumentiere deinen Prompt.
+            </span>
+          </div>
+        </li>
+        <li class="step-item">
+          <input type="checkbox" />
+          <div class="step-text">
+            <strong>4. Plan mit KI nachschärfen</strong>
+            <span>
+              Bitte die KI um konkretere Beispiele, Arbeitsaufträge in einfacher Sprache,
+              alternative Einstiege und Differenzierungsideen. Mache 2–3 Schleifen.
+            </span>
+          </div>
+        </li>
+        <li class="step-item">
+          <input type="checkbox" />
+          <div class="step-text">
+            <strong>5. Lehrkraft-Check ohne KI</strong>
+            <span>
+              Überarbeite den Plan selbst: Was übernimmst du? Was änderst du?
+              Wo liegt die KI fachlich oder didaktisch daneben?
+            </span>
+          </div>
+        </li>
+        <li class="step-item">
+          <input type="checkbox" />
+          <div class="step-text">
+            <strong>6. Endversion erstellen</strong>
+            <span>
+              Erstelle eine saubere Endversion (max. 1 Seite). Markiere, welche Teile auf KI-Ausgaben
+              beruhen und was du selbst angepasst hast.
+            </span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="product-box">
+        <h4>Dein Produkt</h4>
+        <ul>
+          <li>finaler 45-Minuten-Unterrichtsbaustein (ca. 1 Seite)</li>
+          <li>kurze Notiz zum Prompt-Verlauf (Stichworte genügen)</li>
+          <li>Markierung: KI-Anteil vs. eigene Anpassungen</li>
+        </ul>
+      </div>
+
+      <div class="reflection-box">
+        <h4>Reflexion – kurz beantworten</h4>
+        <ul>
+          <li>Wo hat dir KI wirklich Zeit gespart?</li>
+          <li>Wo musstest du als Lehrkraft korrigieren oder eingreifen?</li>
+          <li>Würdest du diesen Umgang mit KI im echten Alltag so nutzen?</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Mission B -->
+    <div id="auftrag-b" class="task-card">
+      <div class="anchor" aria-hidden="true"></div>
+      <div class="task-header-line">
+        <div class="task-tag" style="background:#e7fff5;">
+          <span>🧩</span>
+          <span>Mission B – KI als Differenzierungs-Werkstatt</span>
+        </div>
+        <div class="task-level">Level 2 – Differenzierung & Sprache</div>
+      </div>
+      <h2>Bereite Material für unterschiedliche Lernstände auf</h2>
+      <p class="lead">
+        Du nimmst einen vorhandenen Text und lässt KI dir helfen,
+        ihn für verschiedene Niveaus umzuschreiben und Aufgaben dazu zu bauen.
+      </p>
+      <div class="task-meta">
+        <span>⏱️ <strong>45–60 Min</strong></span>
+        <span>🎯 <strong>Ziel:</strong> schnelle Differenzierung mit KI testen</span>
+        <span>🧑‍🎓 <strong>Fokus:</strong> Sprache & Aufgabenformat</span>
+      </div>
+
+      <h3>Deine Steps</h3>
+      <ul class="steps">
+        <li class="step-item">
+          <input type="checkbox" />
+          <div class="step-text">
+            <strong>1. Ausgangstext wählen</strong>
+            <span>
+              Wähle einen kurzen Sach- oder Übungstext (150–250 Wörter)
+              oder nutze einen bereitgestellten Beispieltext.
+            </span>
+          </div>
+        </li>
+        <li class="step-item">
+          <input type="checkbox" />
+          <div class="step-text">
+            <strong>2. Schwierigkeitsanalyse</strong>
+            <span>
+              Notiere kurz: Was ist für manche zu schwer (z. B. Wortschatz, Satzlänge)?
+              Was ist für starke SuS zu leicht?
+            </span>
+          </div>
+        </li>
+        <li class="step-item">
+          <input type="checkbox" />
+          <div class="step-text">
+            <strong>3. KI-Version A: Vereinfachen</strong>
+            <span>
+              Bitte die KI um eine stark vereinfachte Version (kürzere Sätze,
+              zentrale Begriffe erklärt, kindgerechte Sprache).
+            </span>
+          </div>
+        </li>
+        <li class="step-item">
+          <input type="checkbox" />
+          <div class="step-text">
+            <strong>4. KI-Version B: Erweitern</strong>
+            <span>
+              Bitte die KI um eine Version mit zusätzlichen Fachbegriffen
+              und etwas mehr Tiefe für leistungsstarke SuS.
+            </span>
+          </div>
+        </li>
+        <li class="step-item">
+          <input type="checkbox" />
+          <div class="step-text">
+            <strong>5. KI-Version C: Arbeitsblatt</strong>
+            <span>
+              Lass dir von der KI ein Mini-Arbeitsblatt mit drei Niveaustufen
+              vorschlagen (z. B. Lückentext, Zuordnung, offene Fragen).
+            </span>
+          </div>
+        </li>
+        <li class="step-item">
+          <input type="checkbox" />
+          <div class="step-text">
+            <strong>6. Qualitätscheck & eigene Überarbeitung</strong>
+            <span>
+              Prüfe alle Versionen: Ist alles fachlich korrekt? Passt die Sprache?
+              Überarbeite mindestens eine Textversion und einen Teil des Arbeitsblatts selbst.
+            </span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="product-box">
+        <h4>Dein Produkt</h4>
+        <ul>
+          <li>Originaltext</li>
+          <li>vereinfachte Version (A) und erweiterte Version (B)</li>
+          <li>Entwurf eines differenzierten Arbeitsblatts (C)</li>
+          <li>kurze Notiz, was du von KI übernommen und was du geändert hast</li>
+        </ul>
+      </div>
+
+      <div class="reflection-box">
+        <h4>Reflexion – kurz beantworten</h4>
+        <ul>
+          <li>Für welche Situationen findest du KI-Differenzierung wirklich hilfreich?</li>
+          <li>Wo bleiben Wissen über deine Klasse und pädagogisches Feingefühl wichtiger als KI?</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Mission D -->
+    <div id="auftrag-d" class="task-card">
+      <div class="anchor" aria-hidden="true"></div>
+      <div class="task-header-line">
+        <div class="task-tag" style="background:#fff4e3;">
+          <span>🚀</span>
+          <span>Mission D – KI als Ideen-Sparringspartner</span>
+        </div>
+        <div class="task-level">Level 3 – Kreative Einstiege</div>
+      </div>
+      <h2>Finde und bewerte kreative Unterrichtseinstiege</h2>
+      <p class="lead">
+        Du nutzt KI als Ideenpool für Unterrichtseinstiege, sortierst die Vorschläge
+        aber didaktisch und entscheidest bewusst, was wirklich sinnvoll ist.
+      </p>
+      <div class="task-meta">
+        <span>⏱️ <strong>45–60 Min</strong></span>
+        <span>🎯 <strong>Ziel:</strong> KI-Ideen filtern & passend machen</span>
+        <span>✨ <strong>Fokus:</strong> Motivation & Aktivierung</span>
+      </div>
+
+      <h3>Deine Steps</h3>
+      <ul class="steps">
+        <li class="step-item">
+          <input type="checkbox" />
+          <div class="step-text">
+            <strong>1. Thema & Lerngruppe festlegen</strong>
+            <span>
+              Notiere Fach, Thema, Jahrgang und 2–3 Stichworte zur Lerngruppe
+              (z. B. Mediennutzung, Lesekompetenz, Motivation).
+            </span>
+          </div>
+        </li>
+        <li class="step-item">
+          <input type="checkbox" />
+          <div class="step-text">
+            <strong>2. Einstiegsideen mit KI sammeln</strong>
+            <span>
+              Bitte die KI um mindestens fünf sehr unterschiedliche Einstiege
+              (z. B. Bildimpuls, Umfrage, Mini-Experiment, Rollenspiel, Meme-Analyse),
+              jeweils kurz beschrieben.
+            </span>
+          </div>
+        </li>
+        <li class="step-item">
+          <input type="checkbox" />
+          <div class="step-text">
+            <strong>3. Zwei Ideen vertiefen</strong>
+            <span>
+              Wähle zwei Einstiege aus und lass dir von der KI konkrete Arbeitsaufträge
+              in Schüler:innensprache, Materialideen und eine Low-Prep-Variante geben.
+            </span>
+          </div>
+        </li>
+        <li class="step-item">
+          <input type="checkbox" />
+          <div class="step-text">
+            <strong>4. Didaktischer Check ohne KI</strong>
+            <span>
+              Sortiere alle Einstiegsideen nach: Aktivierung, Barrierefreiheit,
+              Passung zur Lerngruppe, Aufwand. Markiere Ideen, die zwar „cool“,
+              aber didaktisch schwach sind.
+            </span>
+          </div>
+        </li>
+        <li class="step-item">
+          <input type="checkbox" />
+          <div class="step-text">
+            <strong>5. Einen Einstieg final ausarbeiten</strong>
+            <span>
+              Erstelle eine halbe Seite mit Ziel, Ablauf (mit groben Minutenangaben),
+              Material und mindestens einer Differenzierungsidee. Passe die KI-Ideen
+              an deinen Stil an.
+            </span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="product-box">
+        <h4>Dein Produkt</h4>
+        <ul>
+          <li>Liste der KI-Einstiegsideen (kurz)</li>
+          <li>ausgearbeiteter Einstieg (ca. ½ Seite)</li>
+          <li>kurze Markierung, was von KI kommt und was von dir</li>
+        </ul>
+      </div>
+
+      <div class="reflection-box">
+        <h4>Reflexion – kurz beantworten</h4>
+        <ul>
+          <li>Wie sehr lenkt KI deine Vorstellung davon, „wie Unterricht aussehen soll“?</li>
+          <li>Woran erkennst du, dass eine Idee zwar spannend, aber für deine Lerngruppe ungeeignet ist?</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
 </main>
 
 <script>
-const GROUPS = {
+  (function () {
+    const checkboxes = Array.from(
+      document.querySelectorAll('.steps input[type="checkbox"]')
+    );
+    const total = checkboxes.length;
+    const progressFill = document.getElementById('progress-fill');
+    const progressPercent = document.getElementById('progress-percent');
+    const xpLabel = document.getElementById('xp-label');
 
-  u1: {
-    title:"Unterrichts-Fall U-1: 45-Min-Unterrichtsbaustein",
-    lead:"Planen Sie mit KI-Unterstützung einen 45-minütigen Unterrichtsbaustein für eine 8. Klasse Realschule zu einem der vorgegebenen Themen.",
-    text: `
-      <h2>🎯 Ziel</h2>
-      <p>
-        Sie entwickeln einen klar strukturierten Unterrichtsbaustein (45 Minuten) für eine Realschulklasse.
-        Die KI dient Ihnen als Ideengeberin und Formulierungshilfe – Sie entscheiden, was im Unterricht wirklich passiert.
-      </p>
+    function updateProgress() {
+      const done = checkboxes.filter((c) => c.checked).length;
+      const percent = total === 0 ? 0 : Math.round((done / total) * 100);
+      progressFill.style.width = percent + '%';
+      progressPercent.textContent = percent + '%';
+      xpLabel.textContent = done + ' von ' + total + ' Steps erledigt';
+    }
 
-      <h2>📌 Themenwahl – wählen Sie <strong>ein</strong> Thema aus</h2>
-      <ul>
-        <li>Fake News erkennen</li>
-        <li>Nachhaltigkeit im Alltag</li>
-        <li>Gedichtanalyse: „Der Panther“</li>
-        <li>Europäische Union – Warum brauchen wir sie?</li>
-      </ul>
+    checkboxes.forEach((box) => {
+      box.addEventListener('change', updateProgress);
+    });
 
-      <h2>🧩 Ihre Schritte</h2>
-      <ol>
-        <li>Nutzen Sie im Workshop ein KI-Tool, um einen Vorschlag für einen 45-Minuten-Unterrichtsbaustein zu Ihrem Thema zu erhalten (mit Einstieg, Aktivphase, Sicherung).</li>
-        <li>Prüfen Sie den Vorschlag: Was wirkt realistisch, was eher nicht?</li>
-        <li>Überarbeiten Sie den Ablauf so, dass Sie ihn in einer realen 8. Klasse umsetzen könnten.</li>
-        <li>Streichen Sie mindestens ein Element, das in der Praxis aus Ihrer Sicht nicht funktioniert, und ersetzen Sie es durch eine bessere Idee.</li>
-      </ol>
-
-      <h2>🎯 Ergebnis</h2>
-      <ul>
-        <li>Stundenablauf auf maximal einer halben Seite (Stichpunkte reichen).</li>
-        <li>1–2 Sätze zur Zielgruppe und zum Lernziel.</li>
-      </ul>
-    `
-  },
-
-  z1: {
-    title:"Zeugnis-Case Z-1: Zeugnis- & Feedbacktexte",
-    lead:"Üben Sie mit KI wertschätzende, kompetenzorientierte Rückmeldungen zu formulieren.",
-    text: `
-      <h2>🎯 Ziel</h2>
-      <p>
-        Sie erstellen kurze, faire und klare Rückmeldungen zu einem Lernbereich (z.&nbsp;B. Selbstständigkeit, Lernverhalten, Teamarbeit, Medienkompetenz).
-        Die KI unterstützt Sie bei Formulierungen – Sie behalten die pädagogische Verantwortung.
-      </p>
-
-      <h2>🧩 Ihre Schritte</h2>
-      <ol>
-        <li>Wählen Sie einen Lernbereich (z.&nbsp;B. „Selbstständigkeit“ oder „Lern- und Arbeitsverhalten“).</li>
-        <li>Entwerfen Sie drei knappe Steckbriefe zu Schüler*innen:
-          <ul>
-            <li>starke Ausprägung,</li>
-            <li>durchschnittliche Ausprägung,</li>
-            <li>deutlich ausbaufähig.</li>
-          </ul>
-        </li>
-        <li>Nutzen Sie im Workshop ein KI-Tool, um zu jedem Steckbrief einen ersten Entwurf einer Rückmeldung zu generieren.</li>
-        <li>Überarbeiten Sie die Texte:
-          <ul>
-            <li>vereinfachen Sie Formulierungen,</li>
-            <li>achten Sie auf Wertschätzung und Verständlichkeit,</li>
-            <li>entfernen Sie unnötig personenbezogene Details.</li>
-          </ul>
-        </li>
-      </ol>
-
-      <h2>🎯 Ergebnis</h2>
-      <ul>
-        <li>Drei überarbeitete Rückmeldungen, die Sie so in ein Zeugnis oder ein Lernentwicklungsgespräch übernehmen könnten.</li>
-        <li>2–3 Stichpunkte dazu, was die KI gut gemacht hat und wo Sie stark eingreifen mussten.</li>
-      </ul>
-    `
-  },
-
-  a1: {
-    title:"Analyse-Case A-1: Differenzierter Einstieg",
-    lead:"Differenzieren Sie einen Unterrichtseinstieg mit Hilfe von KI auf drei Niveaustufen.",
-    text: `
-      <h2>🎯 Ziel</h2>
-      <p>
-        Sie erleben, wie KI bei der Differenzierung unterstützen kann – und wo Ihre pädagogische Feinabstimmung notwendig ist.
-      </p>
-
-      <h2>📌 Thema wählen – wählen Sie <strong>ein</strong> Thema aus</h2>
-      <ul>
-        <li>Klimawandel</li>
-        <li>Dreisatz</li>
-        <li>Kurzgeschichte: „Das Brot“</li>
-        <li>Fotosynthese</li>
-      </ul>
-
-      <h2>🧩 Ihre Schritte</h2>
-      <ol>
-        <li>Nutzen Sie im Workshop ein KI-Tool, um einen Unterrichtseinstieg zu Ihrem Thema für eine 7. Klasse Realschule in drei Schwierigkeitsstufen zu erzeugen.</li>
-        <li>Überarbeiten Sie jede Version so, dass sie wirklich zu einem unterschiedlichen Niveau passt (z.&nbsp;B. Sprachlichkeit, Umfang an Hilfen, Grad der Offenheit).</li>
-        <li>Notieren Sie für jede Version kurz, für welche Lerngruppe sie besonders geeignet wäre.</li>
-        <li>Schreiben Sie eine Begründung: Warum ist Version A leichter als Version B? Worin zeigt sich das konkret?</li>
-      </ol>
-
-      <h2>🎯 Ergebnis</h2>
-      <ul>
-        <li>Drei überarbeitete Einstiegsversionen (leicht, mittel, anspruchsvoller).</li>
-        <li>Eine kurze schriftliche Begründung zu den Unterschieden der Niveaustufen.</li>
-      </ul>
-    `
-  },
-
-  p1: {
-    title:"Praxis-Case P-1: Arbeitsblatt erstellen",
-    lead:"Erstellen Sie ein didaktisch sinnvolles Arbeitsblatt mit Unterstützung von KI zu einem vorgegebenen Thema.",
-    text: `
-      <h2>🎯 Ziel</h2>
-      <p>
-        Sie nutzen KI, um Ideen für Texte und Aufgaben zu sammeln, und gestalten daraus ein übersichtliches, sinnvoll aufgebautes Arbeitsblatt.
-      </p>
-
-      <h2>📌 Arbeitsblatt-Thema – wählen Sie <strong>ein</strong> Thema aus</h2>
-      <ul>
-        <li>Diagramm lesen: Stromverbrauch eines Haushalts</li>
-        <li>Textanalyse: „Die drei dunklen Könige“</li>
-        <li>Grammatik: Aktiv/Passiv</li>
-      </ul>
-
-      <h2>🧩 Ihre Schritte</h2>
-      <ol>
-        <li>Nutzen Sie im Workshop ein KI-Tool, um einen kurzen Sachtext oder Ausgangstext zu Ihrem Thema sowie vier Aufgaben unterschiedlicher Schwierigkeit zu erzeugen.</li>
-        <li>Sortieren Sie die Aufgaben so, dass ein klarer Lernpfad entsteht (von leicht nach anspruchsvoll).</li>
-        <li>Überarbeiten Sie Aufgaben und Formulierungen so, dass sie zu einer 8. Klasse passen (Sprache, Umfang, Operatoren).</li>
-        <li>Markieren Sie an mindestens einer Stelle, wo die KI unklar, fehlerhaft oder didaktisch ungeschickt war – und verbessern Sie dies.</li>
-      </ol>
-
-      <h2>🎯 Ergebnis</h2>
-      <ul>
-        <li>Ein Arbeitsblatt-Entwurf (Text + Aufgaben) auf maximal einer Seite.</li>
-        <li>Kurze Notiz: Klasse/Fach + Hinweise zu Ihren Korrekturen am KI-Vorschlag.</li>
-      </ul>
-    `
-  },
-
-  e1: {
-    title:"Einstiegs-Case E-1: Kreativer Unterrichtsstart",
-    lead:"Entwickeln Sie einen maximal 60-sekündigen Unterrichtseinstieg, der KI kreativ einbindet.",
-    text: `
-      <h2>🎯 Ziel</h2>
-      <p>
-        Sie planen einen kurzen, aktivierenden Einstieg, bei dem KI Lernende überrascht, motiviert oder irritiert – ohne den Unterricht zu dominieren.
-      </p>
-
-      <h2>🧩 Ihre Schritte</h2>
-      <ol>
-        <li>Wählen Sie ein Thema (z.&nbsp;B. historische Quelle, Gedicht, physikalisches Phänomen, gesellschaftliche Debatte).</li>
-        <li>Nutzen Sie im Workshop ein KI-Tool, um einen passenden Impuls zu erzeugen (z.&nbsp;B. Mini-Dialog, Kurzgeschichte, provokante Behauptung, fehlerhafte Erklärung).</li>
-        <li>Kürzen Sie den Impuls so, dass er in 60 Sekunden aufgenommen werden kann.</li>
-        <li>Formulieren Sie 1–2 Leitfragen, mit denen Sie direkt in die Stunde einsteigen.</li>
-      </ol>
-
-      <h2>🎯 Ergebnis</h2>
-      <ul>
-        <li>Ein konkreter Einstiegstext oder Dialog (max. 6 Sätze).</li>
-        <li>1–2 Leitfragen für die Klasse.</li>
-      </ul>
-    `
-  },
-
-  m1: {
-    title:"Medienkompetenz-Case M-1: Fake News & Bias",
-    lead:"Erstellen Sie mit KI Material, das Lernenden hilft, manipulierte Inhalte zu erkennen.",
-    text: `
-      <h2>🎯 Ziel</h2>
-      <p>
-        Sie entwickeln eine kleine Unterrichtseinheit, in der Lernende eine fiktive Nachricht prüfen und mit einer korrigierten Version vergleichen.
-      </p>
-
-      <h2>🧩 Ihre Schritte</h2>
-      <ol>
-        <li>Wählen Sie ein Themenfeld (z.&nbsp;B. Klimapolitik, Gesundheit, Schule, Social Media).</li>
-        <li>Nutzen Sie im Workshop ein KI-Tool, um eine fiktive, leicht verzerrte Nachricht zu erzeugen (klar als erfunden kennzeichnen!).</li>
-        <li>Lassen Sie sich eine sachlich korrektere, ausgewogenere Version desselben Inhalts erzeugen.</li>
-        <li>Formulieren Sie 4–5 Fragen, mit denen Lernende Unterschiede, fehlende Informationen und mögliche Verzerrungen erkennen können.</li>
-      </ol>
-
-      <h2>🎯 Ergebnis</h2>
-      <ul>
-        <li>Fake-News-Version + korrigierte Version als Text.</li>
-        <li>Ein kurzer Fragenkatalog zur Analyse (geeignet ab Klasse 7).</li>
-      </ul>
-    `
-  },
-
-  r1: {
-    title:"Reflexions-Case R-1: KI im eigenen Fach",
-    lead:"Reflektieren Sie Chancen, Grenzen und sinnvolle Einsatzszenarien von KI in Ihrem Unterrichtsfach.",
-    text: `
-      <h2>🎯 Ziel</h2>
-      <p>
-        Sie erarbeiten eine erste, fachbezogene Haltung zum Einsatz von KI:
-        Wo ist sie hilfreich, wo problematisch, wo überflüssig?
-      </p>
-
-      <h2>🧩 Ihre Schritte</h2>
-      <ol>
-        <li>Nennen Sie einem KI-Tool Ihr Unterrichtsfach und einen Jahrgang (z.&nbsp;B. „Englisch Klasse 9 Gymnasium“).</li>
-        <li>Lassen Sie sich einige sinnvolle Einsatzmöglichkeiten von KI im Fachunterricht vorschlagen.</li>
-        <li>Lassen Sie sich zusätzlich Risiken oder Grenzen benennen (z.&nbsp;B. Kompetenzverlust, Abhängigkeit, Datenschutz).</li>
-        <li>Bewerten Sie die Vorschläge: Was überzeugt Sie? Was eher nicht? Wo würden Sie klare Regeln formulieren?</li>
-      </ol>
-
-      <h2>🎯 Ergebnis</h2>
-      <ul>
-        <li>Eine Liste mit drei Spalten: „sinnvoll“, „unter Bedingungen“, „lehne ich ab“.</li>
-        <li>Ein Satz, der Ihre vorläufige Haltung zusammenfasst:
-            „In meinem Fach sehe ich KI vor allem als …“</li>
-      </ul>
-    `
-  }
-
-};
-
-function show(id){
-  ["view-home","view-work"].forEach(v=>document.getElementById(v).classList.add("hidden"));
-  document.getElementById(id).classList.remove("hidden");
-}
-function goHome(){show("view-home");}
-function openGroup(gid){
-  const g = GROUPS[gid];
-  document.getElementById("groupTitle").textContent = g.title;
-  document.getElementById("groupLead").textContent = g.lead;
-  document.getElementById("materialBox").innerHTML = g.text;
-  show("view-work");
-}
+    // Init label
+    updateProgress();
+  })();
 </script>
-
 </body>
 </html>
